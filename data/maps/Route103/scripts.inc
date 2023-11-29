@@ -1,4 +1,5 @@
 .set LOCALID_RIVAL, 2
+.set LOCALID_BLOCKER, 21
 
 Route103_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route103_OnTransition
@@ -6,8 +7,9 @@ Route103_MapScripts::
 	.byte 0
 
 Route103_OnTransition:
-	call Common_EventScript_SetupRivalGfxId
 	call ProfBirch_EventScript_UpdateLocation
+	call_if_unset FLAG_ADVENTURE_STARTED, Route103_EventScript_BlockEntrance
+	call_if_set FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_SetOldaleState
 	end
 
 Route103_OnLoad:
@@ -23,7 +25,7 @@ Route103_EventScript_Rival::
 	lockall
 	checkplayergender
 	goto_if_eq VAR_RESULT, MALE, Route103_EventScript_RivalMay
-	goto_if_eq VAR_RESULT, FEMALE, Route103_EventScript_RivalBrendan
+	goto_if_eq VAR_RESULT, FEMALE, Route103_EventScript_RivalMay
 	end
 
 Route103_EventScript_RivalMay::
@@ -37,10 +39,7 @@ Route103_EventScript_RivalMay::
 	applymovement LOCALID_RIVAL, Common_Movement_Delay48
 	waitmovement 0
 	msgbox Route103_Text_MayLetsBattle, MSGBOX_DEFAULT
-	switch VAR_STARTER_MON
-	case 0, Route103_EventScript_StartMayBattleTreecko
-	case 1, Route103_EventScript_StartMayBattleTorchic
-	case 2, Route103_EventScript_StartMayBattleMudkip
+	call Route103_EventScript_StartMayBattleMudkip
 	end
 
 Route103_EventScript_RivalBrendan::
@@ -189,6 +188,16 @@ Route103_Movement_WatchRivalExitFacingEastOrWest:
 	walk_in_place_faster_down
 	step_end
 
+Route103_Movement_stepDown:
+	walk_down
+	step_end
+
+Route103_EventScript_playerStepDown::
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Route103_Movement_stepDown
+	releaseall
+	end
+
 Route103_EventScript_Boy::
 	msgbox Route103_Text_ShouldHaveBroughtPotion, MSGBOX_NPC
 	end
@@ -288,6 +297,11 @@ Route103_EventScript_Isabelle::
 	msgbox Route103_Text_IsabellePostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route103_EventScript_BlockEntrance::
+	setobjectxyperm 21, 9, 32
+	setobjectmovementtype 21, MOVEMENT_TYPE_FACE_RIGHT
+	return
+
 Route103_Text_MayRoute103Pokemon:
 	.string "MAY: Let's see… The POKéMON found\n"
 	.string "on ROUTE 103 include…$"
@@ -353,3 +367,52 @@ Route103_Text_RouteSign:
 	.string "ROUTE 103\n"
 	.string "{DOWN_ARROW} OLDALE TOWN$"
 
+Route103_EventScript_playerStepBack::
+	lockall
+	applymovement 21, Common_Movement_ExclamationMark
+	waitmovement 21
+	msgbox Route103_EventScript_playerStepBack_Text_0
+	applymovement OBJ_EVENT_ID_PLAYER, playerStepDown
+	waitmovement OBJ_EVENT_ID_PLAYER
+	applymovement 21, patrolArea
+	waitmovement 21
+	msgbox Route103_EventScript_playerStepBack_Text_1
+	waitmovement 21
+	applymovement OBJ_EVENT_ID_PLAYER, playerStepDown
+	waitmovement OBJ_EVENT_ID_PLAYER
+	releaseall
+	return
+
+
+Route103_EventScript_RockText::
+	lockall
+	msgbox Route103_EventScript_RockText_Text_0
+	releaseall
+	return
+
+
+playerStepDown:
+	walk_down
+	face_up
+	step_end
+
+patrolArea:
+	walk_right
+	walk_right
+	walk_right
+	delay_4
+	walk_left
+	walk_left
+	walk_left
+	delay_4
+	face_right
+	step_end
+
+Route103_EventScript_playerStepBack_Text_0:
+	.string "HEY! Step off!$"
+
+Route103_EventScript_playerStepBack_Text_1:
+	.string "I'm TRYING to look for Pokémon\nfootprints here! Now go! Get!$"
+
+Route103_EventScript_RockText_Text_0:
+	.string "Made you look ::-3$"

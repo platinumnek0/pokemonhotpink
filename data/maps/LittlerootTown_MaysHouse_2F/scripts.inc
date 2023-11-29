@@ -20,7 +20,7 @@ LittlerootTown_MaysHouse_2F_EventScript_CheckShouldUpdateMayPos::
 
 LittlerootTown_MaysHouse_2F_EventScript_TryUpdateMayPos::
 	checkplayergender
-	goto_if_eq VAR_RESULT, FEMALE, LittlerootTown_MaysHouse_2F_EventScript_Ret
+
 	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_MaysHouse_2F_EventScript_Ret
 	setobjectxyperm LOCALID_RIVAL, 8, 2
 	setobjectmovementtype LOCALID_RIVAL, MOVEMENT_TYPE_FACE_UP
@@ -32,6 +32,7 @@ LittlerootTown_MaysHouse_2F_EventScript_Ret::
 LittlerootTown_MaysHouse_2F_EventScript_CheckSetReadyToMeetMay::
 	checkplayergender
 	goto_if_eq VAR_RESULT, MALE, LittlerootTown_MaysHouse_2F_EventScript_SetReadyToMeetMay
+	goto_if_eq VAR_RESULT, FEMALE, LittlerootTown_MaysHouse_2F_EventScript_SetReadyToMeetMay
 	return
 
 LittlerootTown_MaysHouse_2F_EventScript_SetReadyToMeetMay::
@@ -44,11 +45,12 @@ LittlerootTown_MaysHouse_2F_OnWarp:
 
 LittlerootTown_MaysHouse_2F_EventScript_CheckInitDecor::
 	checkplayergender
-	goto_if_eq VAR_RESULT, FEMALE, SecretBase_EventScript_InitDecorations
+
 	end
 
 LittlerootTown_MaysHouse_2F_EventScript_RivalsPokeBall::
 	lockall
+	clearflag FLAG_UNUSED_0x265
 	goto_if_eq VAR_LITTLEROOT_RIVAL_STATE, 2, LittlerootTown_MaysHouse_2F_EventScript_MeetMay
 	msgbox RivalsHouse_2F_Text_ItsRivalsPokeBall, MSGBOX_DEFAULT
 	releaseall
@@ -240,7 +242,7 @@ RivalsHouse_2F_EventScript_Rival::
 	goto_if_set FLAG_MET_RIVAL_LILYCOVE, RivalsHouse_2F_EventScript_RivalPostLilycove
 	checkplayergender
 	goto_if_eq VAR_RESULT, MALE, RivalsHouse_2F_EventScript_May
-	goto_if_eq VAR_RESULT, FEMALE, RivalsHouse_2F_EventScript_Brendan
+	goto_if_eq VAR_RESULT, FEMALE, RivalsHouse_2F_EventScript_May
 	end
 
 RivalsHouse_2F_EventScript_May::
@@ -258,7 +260,7 @@ RivalsHouse_2F_EventScript_RivalPostLilycove::
 	waitmovement 0
 	checkplayergender
 	call_if_eq VAR_RESULT, MALE, RivalsHouse_2F_EventScript_MayPostLilycove
-	call_if_eq VAR_RESULT, FEMALE, RivalsHouse_2F_EventScript_BrendanPostLilycove
+	call_if_eq VAR_RESULT, FEMALE, RivalsHouse_2F_EventScript_MayPostLilycove
 	setflag FLAG_MET_RIVAL_IN_HOUSE_AFTER_LILYCOVE
 	releaseall
 	end
@@ -285,7 +287,7 @@ LittlerootTown_MaysHouse_2F_EventScript_PC::
 	lockall
 	checkplayergender
 	goto_if_eq VAR_RESULT, MALE, LittlerootTown_MaysHouse_2F_EventScript_CheckRivalsPC
-	goto_if_eq VAR_RESULT, FEMALE, LittlerootTown_MaysHouse_2F_EventScript_CheckPlayersPC
+	goto_if_eq VAR_RESULT, FEMALE, LittlerootTown_MaysHouse_2F_EventScript_CheckRivalsPC
 	end
 
 LittlerootTown_MaysHouse_2F_EventScript_CheckRivalsPC::
@@ -397,3 +399,43 @@ RivalsHouse_2F_Text_BrendanWhereShouldIGoNext:
 	.string "Hey, {PLAYER}, if I see you while I'm out\n"
 	.string "catching POKéMON, I can pitch you a\l"
 	.string "battle if you'd like.$"
+
+LittlerootTown_MaysHouse_2F_EventScript_QuigleyPC::
+	lockall
+	msgbox LittlerootTown_MaysHouse_2F_EventScript_QuigleyPC_Text_0
+	releaseall
+	return
+
+
+LittlerootTown_MaysHouse_2F_EventScript_QuigleyDrawers::
+	lockall
+	msgbox LittlerootTown_MaysHouse_2F_EventScript_QuigleyDrawers_Text_0
+	releaseall
+	return
+
+
+LittlerootTown_MaysHouse_2F_EventScript_QuigleyConsole1::
+	lockall
+	msgbox LittlerootTown_MaysHouse_2F_EventScript_QuigleyConsole1_Text_0
+	releaseall
+	return
+
+
+LittlerootTown_MaysHouse_2F_EventScript_QuigleyConsole2::
+	lockall
+	msgbox LittlerootTown_MaysHouse_2F_EventScript_QuigleyConsole2_Text_0
+	releaseall
+	return
+
+
+LittlerootTown_MaysHouse_2F_EventScript_QuigleyPC_Text_0:
+	.string "It's Quigley's PC. Better not snoop...$"
+
+LittlerootTown_MaysHouse_2F_EventScript_QuigleyDrawers_Text_0:
+	.string "The shelves are full of Nintendo games!$"
+
+LittlerootTown_MaysHouse_2F_EventScript_QuigleyConsole1_Text_0:
+	.string "It's a Nintendo Switch that looks conspicuously\nlike a Gamecube!$"
+
+LittlerootTown_MaysHouse_2F_EventScript_QuigleyConsole2_Text_0:
+	.string "It's a Wii that looks\nconspicuously like a Gamecube!$"

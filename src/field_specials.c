@@ -1111,7 +1111,7 @@ static void PCTurnOffEffect(void)
     else if (gSpecialVar_0x8004 == PC_LOCATION_BRENDANS_HOUSE)
         metatileId = METATILE_BrendansMaysHouse_BrendanPC_Off;
     else if (gSpecialVar_0x8004 == PC_LOCATION_MAYS_HOUSE)
-        metatileId = METATILE_BrendansMaysHouse_MayPC_Off;
+        metatileId = METATILE_BrendansMaysHouse_BrendanPC_Off;
 
     MapGridSetMetatileIdAt(gSaveBlock1Ptr->pos.x + dx + MAP_OFFSET, gSaveBlock1Ptr->pos.y + dy + MAP_OFFSET, metatileId | MAPGRID_COLLISION_MASK);
     DrawWholeMapView();

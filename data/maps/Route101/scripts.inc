@@ -23,9 +23,10 @@ Route101_EventScript_StartBirchRescue::
 	lockall
 	playbgm MUS_HELP, TRUE
 	msgbox Route101_Text_HelpMe, MSGBOX_DEFAULT
+	setflag 0x266
 	closemessage
-	setobjectxy LOCALID_BIRCH, 0, 15
-	setobjectxy LOCALID_ZIGZAGOON, 0, 16
+	setobjectxy LOCALID_BIRCH, 11, 10
+	setobjectxy LOCALID_ZIGZAGOON, 12, 10
 	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_EnterScene
 	applymovement LOCALID_BIRCH, Route101_Movement_BirchRunAway1
 	applymovement LOCALID_ZIGZAGOON, Route101_Movement_ZigzagoonChase1
@@ -84,45 +85,46 @@ Route101_Movement_PreventExitNorth:
 	step_end
 
 Route101_Movement_ZigzagoonChaseInCircles:
+    walk_fast_left
 	walk_fast_up
 	walk_fast_up
 	walk_fast_up
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_down
-	walk_fast_down
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
+    walk_fast_up
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_down
+    walk_fast_down
+    jump_down
+    walk_fast_down
+    walk_fast_left
+    walk_fast_left
+    walk_fast_left
+    walk_fast_left
+    walk_fast_up
 	walk_fast_up
 	walk_fast_up
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_down
-	walk_fast_down
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_up
-	walk_fast_up
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_down
-	walk_fast_down
-	walk_fast_left
-	walk_fast_left
+    walk_fast_up
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_down
+    walk_fast_down
+    jump_down
+    walk_fast_down
+    walk_fast_left
+    walk_fast_left
+    walk_fast_left
+    walk_fast_left
 	step_end
 
 Route101_Movement_ZigzagoonChase1:
-	walk_fast_up
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_up
+	walk_fast_left
+    walk_fast_left
+    walk_fast_left
+    walk_fast_left
 	step_end
 
 @ Leftover data? This command is unused.
@@ -146,43 +148,44 @@ Route101_Movement_EnterScene:
 Route101_Movement_BirchRunInCircles:
 	walk_fast_up
 	walk_fast_up
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_down
-	walk_fast_down
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
+	walk_fast_up
+    walk_fast_up
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_down
+    walk_fast_down
+    jump_down
+    walk_fast_down
+    walk_fast_left
+    walk_fast_left
+    walk_fast_left
+    walk_fast_left
+    walk_fast_up
 	walk_fast_up
 	walk_fast_up
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_down
-	walk_fast_down
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_up
-	walk_fast_up
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_down
-	walk_fast_down
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
+    walk_fast_up
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_down
+    walk_fast_down
+    jump_down
+    walk_fast_down
+    walk_fast_left
+    walk_fast_left
+    walk_fast_left
+    walk_fast_left
+    walk_fast_left
 	step_end
 
 Route101_Movement_BirchRunAway1:
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_up
-	walk_fast_up
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
 	step_end
 
 @ Leftover data? This command is unused.
@@ -225,7 +228,7 @@ Route101_EventScript_BirchsBag::
 	setflag FLAG_RESCUED_BIRCH
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_ZIGZAGOON
-	setobjectxy OBJ_EVENT_ID_PLAYER, 6, 13
+	setobjectxy OBJ_EVENT_ID_PLAYER, 8, 10
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
 	special ChooseStarter
@@ -300,3 +303,39 @@ Route101_Text_RouteSign:
 	.string "ROUTE 101\n"
 	.string "{UP_ARROW} OLDALE TOWN$"
 
+Route101_EventScript_signpost::
+	lockall
+	msgbox Route101_EventScript_signpost_Text_0
+	releaseall
+	return
+
+
+Route101_EventScript_youngsterBattle::
+	trainerbattle_single TRAINER_CALVIN_1, youngster_intro, youngster_defeat
+	lockall
+	msgbox youngster_postbattle
+	releaseall
+	end
+
+
+Route101_EventScript_dampSign::
+	lockall
+	msgbox Route101_EventScript_dampSign_Text_0
+	releaseall
+	return
+
+
+Route101_EventScript_signpost_Text_0:
+	.string "Route 1\n<- town / -> town$"
+
+Route101_EventScript_dampSign_Text_0:
+	.string "A slightly damp patch of grass.\nYou don't want to know much more.$"
+
+youngster_intro::
+	.string "When two trainers lock eyes- that's\nright! A Pokémon battle!$"
+
+youngster_defeat::
+	.string "NOOO! So close!$"
+
+youngster_postbattle::
+	.string "You might've beaten me, but there are\nstronger trainers out there!$"

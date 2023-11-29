@@ -7,7 +7,6 @@ OldaleTown_MapScripts::
 	.byte 0
 
 OldaleTown_OnTransition:
-	call Common_EventScript_SetupRivalGfxId
 	setflag FLAG_VISITED_OLDALE_TOWN
 	call_if_unset FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_BlockWestEntrance
 	call_if_unset FLAG_RECEIVED_POTION_OLDALE, OldaleTown_EventScript_MoveMartEmployee
@@ -25,8 +24,7 @@ OldaleTown_EventScript_BlockWestEntrance::
 	return
 
 OldaleTown_EventScript_MoveMartEmployee::
-	setobjectxyperm LOCALID_MART_EMPLOYEE, 13, 14
-	setobjectmovementtype LOCALID_MART_EMPLOYEE, MOVEMENT_TYPE_FACE_DOWN
+	
 	return
 
 OldaleTown_EventScript_TownSign::
@@ -260,7 +258,7 @@ OldaleTown_EventScript_RivalTrigger3::
 OldaleTown_EventScript_ShowRivalMessage::
 	checkplayergender
 	goto_if_eq VAR_RESULT, MALE, OldaleTown_EventScript_ShowMayMessage
-	goto_if_eq VAR_RESULT, FEMALE, OldaleTown_EventScript_ShowBrendanMessage
+	goto_if_eq VAR_RESULT, FEMALE, OldaleTown_EventScript_ShowMayMessage
 	end
 
 OldaleTown_EventScript_ShowMayMessage::
@@ -311,12 +309,12 @@ OldaleTown_Movement_RivalApproachPlayer3:
 	step_end
 
 OldaleTown_Movement_RivalExit:
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	step_end
 
 OldaleTown_Movement_WatchRivalExit:
@@ -399,3 +397,39 @@ OldaleTown_Text_TownSign:
 	.string "OLDALE TOWN\n"
 	.string "“Where things start off scarce.”$"
 
+OldaleTown_EventScript_employeeDialogue::
+	faceplayer
+	lockall
+	msgbox OldaleTown_EventScript_employeeDialogue_Text_0
+	release
+	releaseall
+	return
+
+
+OldaleTown_EventScript_gardenSign::
+	lockall
+	msgbox OldaleTown_EventScript_gardenSign_Text_0
+	releaseall
+	return
+
+
+OldaleTown_EventScript_stellaSign::
+	lockall
+	msgbox OldaleTown_EventScript_stellaSign_Text_0
+	releaseall
+	return
+
+
+OldaleTown_EventScript_employeeDialogue_Text_0:
+	.string "Hey! Did you know?\n"
+	.string "The PokéMart and Pokémon Center used\l"
+	.string "to be two separate buildings. But\l"
+	.string "they moved the Marts to the second\l"
+	.string "floor of the Centers recently."
+	.string "\lConvenient, right?$"
+
+OldaleTown_EventScript_gardenSign_Text_0:
+	.string "Community Garden$"
+
+OldaleTown_EventScript_stellaSign_Text_0:
+	.string "Stella's house$"

@@ -113,6 +113,7 @@ LittlerootTown_ProfessorBirchsLab_OnFrame:
 @ This is just where the game tells you its yours and lets you nickname it
 LittlerootTown_ProfessorBirchsLab_EventScript_GiveStarterEvent::
 	lockall
+	setflag FLAG_UNUSED_0x265
 	bufferleadmonspeciesname STR_VAR_1
 	message LittlerootTown_ProfessorBirchsLab_Text_LikeYouToHavePokemon
 	waitmessage
@@ -121,6 +122,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GiveStarterEvent::
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_WhyNotGiveNicknameToMon, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, LittlerootTown_ProfessorBirchsLab_EventScript_NicknameStarter
 	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_GoSeeRival
+	setflag FLAG_UNUSED_0x020
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_NicknameStarter::
@@ -524,9 +526,12 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedex::
 	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanGivePokeBalls
 	setvar VAR_BIRCH_LAB_STATE, 5
 	setflag FLAG_ADVENTURE_STARTED
+	setflag FLAG_UNUSED_0x020
 	setvar VAR_OLDALE_TOWN_STATE, 1
 	setvar VAR_LITTLEROOT_RIVAL_STATE, 4
-	setvar VAR_LITTLEROOT_TOWN_STATE, 3
+	setvar VAR_LITTLEROOT_TOWN_STATE, 4
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_MOM_OUTSIDE
+	call LittlerootTown_EventScript_SetReceivedRunningShoes
 	releaseall
 	end
 

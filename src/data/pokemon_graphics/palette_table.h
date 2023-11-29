@@ -1339,6 +1339,7 @@ const struct CompressedSpritePalette gMonPaletteTable[] =
 const struct CompressedSpritePalette gMonPaletteTableFemale[] =
 {
     SPECIES_PAL(EEVEE, gMonPalette_Eevee),
+    SPECIES_PAL(RATTATA, gMonPalette_RattataF),
 #if P_GEN_4_POKEMON == TRUE
     SPECIES_PAL(COMBEE, gMonPalette_CombeeF),
     SPECIES_PAL(STARLY, gMonPalette_Starly),

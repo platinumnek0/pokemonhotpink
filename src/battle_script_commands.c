@@ -2086,7 +2086,7 @@ static void Cmd_ppreduce(void)
     static const u8 sCriticalHitChance[] = {16, 8, 4, 3, 2}; // Gens 2,3,4,5
 #endif // B_CRIT_CHANCE
 
-#define BENEFITS_FROM_LEEK(battler, holdEffect)((holdEffect == HOLD_EFFECT_LEEK) && (GET_BASE_SPECIES_ID(gBattleMons[battler].species) == SPECIES_FARFETCHD || gBattleMons[battler].species == SPECIES_SIRFETCHD))
+#define BENEFITS_FROM_LEEK(battler, holdEffect)((holdEffect == HOLD_EFFECT_LEEK) && (GET_BASE_SPECIES_ID(gBattleMons[battler].species) == SPECIES_PETILIL || gBattleMons[battler].species == SPECIES_LILLIGANT))
 s32 CalcCritChanceStage(u8 battlerAtk, u8 battlerDef, u32 move, bool32 recordAbility)
 {
     s32 critChance = 0;
@@ -8492,7 +8492,7 @@ bool32 CanPoisonType(u8 battlerAttacker, u8 battlerTarget)
 
 bool32 CanParalyzeType(u8 battlerAttacker, u8 battlerTarget)
 {
-    return !(B_PARALYZE_ELECTRIC >= GEN_6 && IS_BATTLER_OF_TYPE(battlerTarget, TYPE_ELECTRIC));
+    return !(B_PARALYZE_ELECTRIC >= GEN_6 && (IS_BATTLER_OF_TYPE(battlerTarget, TYPE_ELECTRIC) || IS_BATTLER_OF_TYPE(battlerTarget, TYPE_RUBBER)));
 }
 
 bool32 CanUseLastResort(u8 battlerId)

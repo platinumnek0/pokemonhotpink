@@ -341,19 +341,19 @@ static const u8 sPetalDanceDescription[] = _(
     "that confuses the user.");
 
 static const u8 sStringShotDescription[] = _(
-    "Binds the foe with string\n"
-    "to reduce its Speed.");
+    "Binds the foes with string.\n"
+    "May lower Speed.");
 
 static const u8 sDragonRageDescription[] = _(
-    "Launches shock waves that\n"
-    "always inflict 40 HP damage.");
+    "Launches shock waves made\n"
+    "of primal anger.");
 
 static const u8 sFireSpinDescription[] = _(
     "Traps the foe in a ring of\n"
     "fire for "BINDING_TURNS" turns.");
 
 static const u8 sThunderShockDescription[] = _(
-    "An electrical attack that\n"
+    "A small electric jolt that\n"
     "may paralyze the foe.");
 
 static const u8 sThunderboltDescription[] = _(
@@ -506,7 +506,7 @@ static const u8 sEggBombDescription[] = _(
 
 static const u8 sLickDescription[] = _(
     "Licks with a long tongue to\n"
-    "injure. May also paralyze.");
+    "injure. May flinch the foe.");
 
 static const u8 sSmogDescription[] = _(
     "An exhaust-gas attack\n"
@@ -773,8 +773,8 @@ static const u8 sSludgeBombDescription[] = _(
     "damage. May also poison.");
 
 static const u8 sMudSlapDescription[] = _(
-    "Hurls mud in the foe's face\n"
-    "to reduce its accuracy.");
+    "Hurls mud in the foe's face.\n"
+    "May reduce accuracy.");
 
 static const u8 sOctazookaDescription[] = _(
     "Fires a lump of ink to\n"
@@ -837,16 +837,16 @@ static const u8 sCharmDescription[] = _(
     "reduces its Attack.");
 
 static const u8 sRolloutDescription[] = _(
-    "An attack lasting 5 turns\n"
-    "with rising intensity.");
+    "A rolling attack that gets\n"
+    "stronger with each hit.");
 
 static const u8 sFalseSwipeDescription[] = _(
     "An attack that leaves the\n"
     "foe with at least 1 HP.");
 
 static const u8 sSwaggerDescription[] = _(
-    "Confuses the foe, but also\n"
-    "sharply raises Attack.");
+    "Confuses the foe, but\n"
+    "sharply raises its Attack.");
 
 static const u8 sMilkDrinkDescription[] = _(
     "Recovers up to half the\n"
@@ -1273,8 +1273,8 @@ static const u8 sAromatherapyDescription[] = _(
     "with a soothing scent.");
 
 static const u8 sFakeTearsDescription[] = _(
-    "Feigns crying to sharply\n"
-    "lower the foe's Sp. Def.");
+    "Feigns crying to lower\n"
+    "foe Sp.Atk.");
 
 static const u8 sAirCutterDescription[] = _(
     "Hacks with razorlike wind.\n"

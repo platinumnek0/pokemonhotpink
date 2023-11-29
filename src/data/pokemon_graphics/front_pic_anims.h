@@ -3467,8 +3467,6 @@ static const union AnimCmd sAnim_Corphish_1[] =
     ANIMCMD_FRAME(1, 15),
     ANIMCMD_FRAME(0, 15),
     ANIMCMD_FRAME(1, 15),
-    ANIMCMD_FRAME(0, 15),
-    ANIMCMD_FRAME(1, 15),
     ANIMCMD_FRAME(0, 50),
     ANIMCMD_END,
 };
@@ -9088,6 +9086,10 @@ static const union AnimCmd sAnim_Drednaw_1[] =
 
 static const union AnimCmd sAnim_Yamper_1[] =
 {
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 5),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 5),
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };

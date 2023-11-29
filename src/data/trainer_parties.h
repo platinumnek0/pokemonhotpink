@@ -4206,8 +4206,13 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Shelby5[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_Calvin1[] = {
     {
     .iv = 0,
-    .lvl = 5,
-    .species = SPECIES_POOCHYENA,
+    .lvl = 3,
+    .species = SPECIES_PIDGEY,
+    },
+    {
+    .iv = 0,
+    .lvl = 2,
+    .species = SPECIES_VENIPEDE,
     }
 };
 
@@ -6917,7 +6922,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayRoute103Mudkip[] = {
     {
     .iv = 0,
     .lvl = 5,
-    .species = SPECIES_TREECKO,
+    .species = SPECIES_CLEFFA,
     }
 };
 
@@ -12432,5 +12437,19 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayLinkPlaceholder[] = {
     .iv = 0,
     .lvl = 5,
     .species = SPECIES_KYOGRE,
+    }
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_Youngster_Route1[] = {
+    {
+    .iv = 0,
+    .lvl = 3,
+    .species = SPECIES_PIDGEY,
+    },
+
+    {
+    .iv = 0,
+    .lvl = 2,
+    .species = SPECIES_VENIPEDE,
     }
 };

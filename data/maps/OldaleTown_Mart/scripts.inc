@@ -70,3 +70,12 @@ OldaleTown_Mart_Text_RestoreHPWithPotion:
 	.string "To prevent your POKéMON from fainting,\n"
 	.string "restore its HP with a POTION.$"
 
+OldaleTown_Mart_EventScript_Door::
+	lockall
+	msgbox OldaleTown_Mart_EventScript_Door_Text_0
+	releaseall
+	return
+
+
+OldaleTown_Mart_EventScript_Door_Text_0:
+	.string "A locked door. It reads 'STAFF ONLY'.$"
