@@ -989,33 +989,33 @@ enum {
     HOENN_DEX_CLEFABLE, //gingenacl
     HOENN_DEX_FOONGUS, //skungus
     HOENN_DEX_AMOONGUSS, //skungrowth
-    HOENN_DEX_CORPHISH, //icopod
-    HOENN_DEX_CRAWDAUNT, //icerrate
-    HOENN_DEX_TEDDIURSA, //ursquish
-    HOENN_DEX_URSARING, //urstretch
-    HOENN_DEX_URSALUNA, //urstrong
+    HOENN_DEX_RATTATA, //sqweekling
+    HOENN_DEX_RATICATE, //clamorat
+    HOENN_DEX_WURMPLE, //inchwyrm
+    HOENN_DEX_SILCOON, //drakoon
+    HOENN_DEX_BEAUTIFLY, //fluterror
     HOENN_DEX_DEDENNE, //pikagreen 
     HOENN_DEX_PONYTA, //coofoal
     HOENN_DEX_RAPIDASH, //equavian
-    HOENN_DEX_RATTATA, //sqweekling 
-    HOENN_DEX_RATICATE, //clamorat
+    HOENN_DEX_LEDYBA, //katred
+    HOENN_DEX_LEDIAN, //katriol
     HOENN_DEX_KLINK, //willywoo
     HOENN_DEX_KLANG, //wirlydoo
     HOENN_DEX_JOLTEON, //volteon
     HOENN_DEX_SABLEYE, //koboleye
-    HOENN_DEX_WURMPLE, //inchwyrm
-    HOENN_DEX_SILCOON, //drakoon
-    HOENN_DEX_BEAUTIFLY, //flutterror
-    HOENN_DEX_DELCATTY,
-    HOENN_DEX_ZUBAT,
-    HOENN_DEX_GOLBAT,
-    HOENN_DEX_CROBAT,
-    HOENN_DEX_TENTACOOL,
-    HOENN_DEX_TENTACRUEL,
-    HOENN_DEX_PALKIA, //DUMMY DATA
-    HOENN_DEX_MAWILE,
-    HOENN_DEX_ARON,
-    HOENN_DEX_LAIRON,
+    HOENN_DEX_TEDDIURSA, //ursquish
+    HOENN_DEX_URSARING, //urstretch
+    HOENN_DEX_URSALUNA, //urstrong
+    HOENN_DEX_CORPHISH, //icopod
+    HOENN_DEX_CRAWDAUNT, //icerrate
+    HOENN_DEX_SHINX, //flakitten
+    HOENN_DEX_LUXIO, //mantikub
+    HOENN_DEX_LUXRAY, //arktikore
+    HOENN_DEX_SALANDIT, //sigmander
+    HOENN_DEX_FLABEBE, //baloom
+    HOENN_DEX_FLOETTE, //coulrimar
+    HOENN_DEX_GOLDEEN, //piscolo
+    HOENN_DEX_SEAKING, //pischool
     HOENN_DEX_AGGRON,
     HOENN_DEX_MACHOP,
     HOENN_DEX_MACHOKE,

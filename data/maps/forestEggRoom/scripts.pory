@@ -1,0 +1,18 @@
+mapscripts forestEggRoom_MapScripts {}
+
+script forestEggRoom_EventScript_eggMan{
+    lockall
+    call_if_set(0x267, forestEggRoom_EventScript_noMan)
+    call_if_unset(0x267, forestEggRoom_EventScript_giveEgg)
+    releaseall
+}
+
+script forestEggRoom_EventScript_giveEgg{
+    msgbox("There is a man here.\nHe has an item to give you.")
+    giveitem(ITEM_LUCKY_EGG)
+    setflag(0x267)
+}
+
+script forestEggRoom_EventScript_noMan{
+    msgbox("There is no longer a man here.")
+}

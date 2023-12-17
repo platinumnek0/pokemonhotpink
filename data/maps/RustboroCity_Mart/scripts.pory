@@ -1,0 +1,223 @@
+raw`RustboroCity_Mart_MapScripts::
+	.byte 0
+
+RustboroCity_Mart_EventScript_Clerk::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	goto_if_unset FLAG_MET_DEVON_EMPLOYEE, RustboroCity_Mart_EventScript_PokemartBasic
+	goto_if_set FLAG_MET_DEVON_EMPLOYEE, RustboroCity_Mart_EventScript_PokemartExpanded
+	end
+
+RustboroCity_Mart_EventScript_PokemartBasic::
+	pokemart RustboroCity_Mart_Pokemart_Basic
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+RustboroCity_Mart_Pokemart_Basic:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_ESCAPE_ROPE
+	.2byte ITEM_REPEL
+	.2byte ITEM_X_SPEED
+	.2byte ITEM_X_ATTACK
+	.2byte ITEM_X_DEFENSE
+	.2byte ITEM_NONE
+	release
+	end
+
+RustboroCity_Mart_EventScript_PokemartExpanded::
+	pokemart RustboroCity_Mart_Pokemart_Expanded
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+RustboroCity_Mart_Pokemart_Expanded:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_ESCAPE_ROPE
+	.2byte ITEM_REPEL
+	.2byte ITEM_X_SPEED
+	.2byte ITEM_X_ATTACK
+	.2byte ITEM_X_DEFENSE
+	.2byte ITEM_NONE
+	release
+	end
+
+RustboroCity_Mart_EventScript_PokefanF::
+	msgbox RustboroCity_Mart_Text_BuyingHealsInCaseOfShroomish, MSGBOX_NPC
+	end
+
+RustboroCity_Mart_EventScript_Boy::
+	msgbox RustboroCity_Mart_Text_ShouldBuySuperPotionsInstead, MSGBOX_NPC
+	end
+
+RustboroCity_Mart_EventScript_BugCatcher::
+	msgbox RustboroCity_Mart_Text_GettingEscapeRopeJustInCase, MSGBOX_NPC
+	end
+
+RustboroCity_Mart_Text_BuyingHealsInCaseOfShroomish:
+	.string "I'm buying some PARLYZ HEALS and\n"
+	.string "ANTIDOTES.\p"
+	.string "Just in case I run into SHROOMISH\n"
+	.string "in PETALBURG WOODS.$"
+
+RustboroCity_Mart_Text_ShouldBuySuperPotionsInstead:
+	.string "My POKéMON evolved.\n"
+	.string "It has a lot of HP now.\p"
+	.string "I should buy SUPER POTIONS for it\n"
+	.string "instead of ordinary POTIONS.$"
+
+RustboroCity_Mart_Text_GettingEscapeRopeJustInCase:
+	.string "I'm getting an ESCAPE ROPE just in\n"
+	.string "case I get lost in a cave.\p"
+	.string "I just need to use it to get back to\n"
+	.string "the entrance.$"
+
+`
+
+//é
+
+//check if post-gift flag is set
+script rustboroMart_baloomGift{
+    call_if_unset(0x26A, determineBaloomType)
+    goto_if_unset(0x269, baloomGift_preGift)
+    goto_if_set(0x269, baloomGift_postGiftText)
+}
+//lock the baloom form you'll get in place
+script determineBaloomType{
+    random(4)
+    switch(var(VAR_RESULT)){
+        case(0): setvar(VAR_UNUSED_0x404E, 0)
+        case(1): setvar(VAR_UNUSED_0x404E, 1)
+        case(2): setvar(VAR_UNUSED_0x404E, 2)
+        case(3): setvar(VAR_UNUSED_0x404E, 3)
+    }
+    setflag(0x26A)
+}
+
+//if post-gift flag is set, don't trigger the event
+script baloomGift_postGiftText{
+    lockall
+    msgbox("Hope you enjoy the gift!\p"
+           "Be sure to tell all your friends\nabout it!")
+    releaseall
+}
+
+//if post-gift flag ISN'T set, trigger the event
+script baloomGift_preGift{
+    //check if the amiibo flag is set or not
+    goto_if_set(0x268, baloomGift_amiiboFlagSet)
+    goto_if_unset(0x268, baloomGift_amiiboFlagNotSet)
+}
+
+//if the amiibo flag isn't set, then talk about the offer
+script baloomGift_amiiboFlagNotSet{
+    lockall
+    msgbox("Welcome to the PokéMart, how can I\nhelp you today?")
+    msgbox("Have you heard about our special\noffer?", MSGBOX_YESNO) 
+    compare(VAR_RESULT, 0)
+    //if the player answers no, explain the deal to them
+    goto_if_eq(baloomGift_noText)
+    //if the player answers yes, give the appropriate text
+    msgbox("Great! If you have any Amiibos we can\nscan, be sure to bring them by!", MSGBOX_DEFAULT)
+    releaseall
+}
+
+//tell the player about it if they answer no
+script baloomGift_noText{
+    msgbox("Well!\p"
+           "We're holding a special offer for\nthis weekend only!\p"
+           "If you come in with an Amiibo, we'll\n"
+           "scan it and gift you a free Pokémon!")
+    msgbox(amiiboMemory)
+    releaseall
+}
+
+//text for the hint toward what to do lol
+text amiiboMemory{
+"{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+           "You remember your mom saying to check\nthat everything is on your desk...{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
+}
+
+//if the amiibo flag IS set, start the gift event proper
+script baloomGift_amiiboFlagSet{
+    msgbox("Welcome to the PokéMart, how c-")
+    applymovement(5, exclamation)
+    msgbox("Oh! You really have one!")
+    //check if party's full, go to the appropriate script if it is
+    getpartysize
+    compare(VAR_RESULT, 6)
+    goto_if_eq(baloomGift_partyFull)
+
+    //if it isn't, gift the baloom
+    msgbox("D'you mind if I take your Amiibo for\na second?")
+    applymovement(5, shuffle)
+    msgbox(amiiboTransfer)
+    msgbox("Theeere we go! And here you are!")
+    switch(var(VAR_UNUSED_0x404E)){
+        case(0): givemon(SPECIES_FLABEBE_YELLOW_FLOWER, 7, ITEM_NONE)
+        case(1): givemon(SPECIES_FLABEBE_ORANGE_FLOWER, 7, ITEM_NONE)
+        case(2): givemon(SPECIES_FLABEBE_WHITE_FLOWER, 7, ITEM_NONE)
+        case(3): givemon(SPECIES_FLABEBE_BLUE_FLOWER, 7, ITEM_NONE)
+    }
+    playfanfare(MUS_OBTAIN_ITEM)
+    msgbox("You got a Baloom!")
+    waitfanfare
+    msgbox("Enjoy the gift!")
+    setflag(0x269)
+    releaseall
+}
+
+//go here if your party is full
+script baloomGift_partyFull{
+    msgbox("Hmmm... looks like your party's full.\pSorry, if you want the gift, you need\nan empty slot.\pWe can't access trainers' PCs to make\ndeposits.")
+    releaseall
+}
+
+//text for handing over the amiibo
+text amiiboTransfer{
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "You hand the clerk your Amiibo.\p"
+    "He takes a scanner to the bottom of it.{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
+}
+//amiibo grabbing movement
+movement shuffle{
+    walk_in_place_right*2
+}
+
+//gamer guy interaction
+script rustbotoMart_gamerGuy{
+    lockall
+    applymovement(4, exclamation)
+    waitmovement(4)
+    faceplayer
+    goto_if_set(0x26A, gameText)
+    call_if_unset(0x26A, determineBaloomType)
+    msgbox("HEY! Go away!\pCan't you see I'm busy here!?")
+    goto(gameText)
+}
+
+script gameText{
+    msgbox("{COLOR GREEN}{SHADOW LIGHT_GREEN}He seems to be busy playing a game.")
+    switch(var(VAR_UNUSED_0x404E)){
+        case(0): msgbox("Whoever that character is, it seems\ntheir rocket just crashed...{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}")
+        case(1): msgbox("Two characters are in a cave.\pThat rock doesn't look safe...{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}")
+        case(2): msgbox("Look at all those fruits!\pMust be a gardening game...{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}")
+        case(3): msgbox("Some kind of timed challenge is\ngoing on.\pBetter not interrupt...{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}")
+    }
+    release
+    releaseall
+}

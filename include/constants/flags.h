@@ -651,12 +651,12 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x6E)
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
-#define FLAG_UNUSED_0x264  0x264 // Unused Flag
+#define FLAG_UNUSED_0x264  0x264 // used to hide mart in the forest
 #define FLAG_UNUSED_0x265  0x265 // used to hide quigley in the start of the game
 #define FLAG_UNUSED_0x266  0x266 // used to hide the roadblock guy in littleroot
-#define FLAG_UNUSED_0x267  0x267 // Unused Flag
-#define FLAG_UNUSED_0x268  0x268 // Unused Flag
-#define FLAG_UNUSED_0x269  0x269 // Unused Flag
+#define FLAG_UNUSED_0x267  0x267 // used for the gift lucky egg in the forest
+#define FLAG_UNUSED_0x268  0x268 // used for the baloom amiibo
+#define FLAG_UNUSED_0x269  0x269 // used to lock you out of re-getting the baloom gift once you've got it already
 #define FLAG_UNUSED_0x26A  0x26A // Unused Flag
 #define FLAG_UNUSED_0x26B  0x26B // Unused Flag
 #define FLAG_UNUSED_0x26C  0x26C // Unused Flag

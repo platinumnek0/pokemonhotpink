@@ -399,9 +399,36 @@ movement playerStepDown{
 }
 
 movement patrolArea{
-	walk_right*3
-	delay_4
-	walk_left*3
-	delay_4
+	walk_right*4
+	walk_left*4
 	face_right
+}
+
+script Route103_EventScript_ladyText{
+	lockall
+	faceplayer
+	msgbox("So uh. Turns out, that uh.\nThose footprints. They, uh...\lThey were kinda mine.")
+	release
+	releaseall
+}
+
+script Route2_EventScript_lassBattle{
+
+    trainerbattle_single(TRAINER_TIANA, lassr2_intro, lassr2_defeat)
+    lockall
+    msgbox(lassr2_postbattle)
+    releaseall
+    end
+}
+
+text lassr2_intro{
+	"Hey! Stop walking and look at my\nPokémon!"
+}
+
+text lassr2_defeat{
+	"UGHHHH. Great."
+}
+
+text lassr2_postbattle{
+	"I don't understand how I could've\nlost... my Pokémon are so cute!"
 }

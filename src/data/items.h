@@ -6210,7 +6210,7 @@ const struct Item gItems[] =
 
     [ITEM_LUCKY_EGG] =
     {
-        .name = _("Lucky Egg"),
+        .name = _("Lucky Eeg"),
         .itemId = ITEM_LUCKY_EGG,
         .price = 10000,
         .holdEffect = HOLD_EFFECT_LUCKY_EGG,

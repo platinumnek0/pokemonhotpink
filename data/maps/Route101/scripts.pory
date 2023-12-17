@@ -1,6 +1,6 @@
 raw `
-.set LOCALID_BIRCH, 2
-.set LOCALID_ZIGZAGOON, 4
+.set LOCALID_BIRCH, 1
+.set LOCALID_ZIGZAGOON, 3
 
 Route101_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route101_OnTransition
@@ -323,7 +323,7 @@ script Route101_EventScript_youngsterBattle{
 
 script Route101_EventScript_dampSign{
 	lockall
-	msgbox("A slightly damp patch of grass.\nYou don't want to know much more.")
+	msgbox("A slightly damp patch of grass.")
 	releaseall
 }
 

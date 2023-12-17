@@ -1,0 +1,14 @@
+mapscripts route3_MapScripts {}
+
+script randomTest{
+    lockall
+    random(4)
+    switch(var(VAR_RESULT))
+    {
+        case(0): msgbox("Yellow")
+        case(1): msgbox("Purple")
+        case(2): msgbox("Pink")
+        case(3): msgbox("Cyan")
+    }
+    releaseall
+}

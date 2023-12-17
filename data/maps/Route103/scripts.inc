@@ -400,13 +400,30 @@ patrolArea:
 	walk_right
 	walk_right
 	walk_right
-	delay_4
+	walk_right
 	walk_left
 	walk_left
 	walk_left
-	delay_4
+	walk_left
 	face_right
 	step_end
+
+Route103_EventScript_ladyText::
+	lockall
+	faceplayer
+	msgbox Route103_EventScript_ladyText_Text_0
+	release
+	releaseall
+	return
+
+
+Route2_EventScript_lassBattle::
+	trainerbattle_single TRAINER_TIANA, lassr2_intro, lassr2_defeat
+	lockall
+	msgbox lassr2_postbattle
+	releaseall
+	end
+
 
 Route103_EventScript_playerStepBack_Text_0:
 	.string "HEY! Step off!$"
@@ -416,3 +433,15 @@ Route103_EventScript_playerStepBack_Text_1:
 
 Route103_EventScript_RockText_Text_0:
 	.string "Made you look ::-3$"
+
+Route103_EventScript_ladyText_Text_0:
+	.string "So uh. Turns out, that uh.\nThose footprints. They, uh...\lThey were kinda mine.$"
+
+lassr2_intro::
+	.string "Hey! Stop walking and look at my\nPokémon!$"
+
+lassr2_defeat::
+	.string "UGHHHH. Great.$"
+
+lassr2_postbattle::
+	.string "I don't understand how I could've\nlost... my Pokémon are so cute!$"

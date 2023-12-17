@@ -1191,15 +1191,15 @@ const struct CompressedSpriteSheet gMonFrontPicTable[] =
     SPECIES_SPRITE(VIVILLON_FANCY, gMonFrontPic_VivillonFancy),
     SPECIES_SPRITE(VIVILLON_POKE_BALL, gMonFrontPic_VivillonPokeBall),
 
-    SPECIES_SPRITE(FLABEBE_YELLOW_FLOWER, gMonFrontPic_Flabebe),
-    SPECIES_SPRITE(FLABEBE_ORANGE_FLOWER, gMonFrontPic_Flabebe),
-    SPECIES_SPRITE(FLABEBE_BLUE_FLOWER, gMonFrontPic_Flabebe),
-    SPECIES_SPRITE(FLABEBE_WHITE_FLOWER, gMonFrontPic_Flabebe),
+    SPECIES_SPRITE(FLABEBE_YELLOW_FLOWER, gMonFrontPic_FlabebeYellowFlower),
+    SPECIES_SPRITE(FLABEBE_ORANGE_FLOWER, gMonFrontPic_FlabebeOrangeFlower),
+    SPECIES_SPRITE(FLABEBE_BLUE_FLOWER, gMonFrontPic_FlabebeBlueFlower),
+    SPECIES_SPRITE(FLABEBE_WHITE_FLOWER, gMonFrontPic_FlabebeWhiteFlower),
 
-    SPECIES_SPRITE(FLOETTE_YELLOW_FLOWER, gMonFrontPic_Floette),
-    SPECIES_SPRITE(FLOETTE_ORANGE_FLOWER, gMonFrontPic_Floette),
-    SPECIES_SPRITE(FLOETTE_BLUE_FLOWER, gMonFrontPic_Floette),
-    SPECIES_SPRITE(FLOETTE_WHITE_FLOWER, gMonFrontPic_Floette),
+    SPECIES_SPRITE(FLOETTE_YELLOW_FLOWER, gMonFrontPic_FloetteYellowFlower),
+    SPECIES_SPRITE(FLOETTE_ORANGE_FLOWER, gMonFrontPic_FloetteOrangeFlower),
+    SPECIES_SPRITE(FLOETTE_BLUE_FLOWER, gMonFrontPic_FloetteBlueFlower),
+    SPECIES_SPRITE(FLOETTE_WHITE_FLOWER, gMonFrontPic_FloetteWhiteFlower),
     SPECIES_SPRITE(FLOETTE_ETERNAL_FLOWER, gMonFrontPic_FloetteEternalFlower),
 
     SPECIES_SPRITE(FLORGES_YELLOW_FLOWER, gMonFrontPic_Florges),

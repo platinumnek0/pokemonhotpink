@@ -302,3 +302,29 @@ PlayersHouse_2F_Text_ItsAGameCube:
 	.string "It's a Nintendo GameCube.\p"
 	.string "A Game Boy Advance is connected to\n"
 	.string "serve as the Controller.$"
+
+deskNotebook::
+	lockall
+	call_if_set 0x268, notebookText
+	call_if_unset 0x268, amiiboGet
+	releaseall
+	return
+
+
+amiiboGet::
+	setflag 0x268
+	call_if_unset 0x26A, determineBaloomType
+	msgbox amiiboGet_Text_0
+	return
+
+
+notebookText::
+	msgbox notebookText_Text_0
+	return
+
+
+amiiboGet_Text_0:
+	.string "An Amiibo of a spaceman character is\nsitting by your notebook.\pYou put it in your pocket.$"
+
+notebookText_Text_0:
+	.string "Your notebook.\pThe pages are lined with drawings\nof monsters.$"

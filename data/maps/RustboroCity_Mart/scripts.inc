@@ -86,3 +86,229 @@ RustboroCity_Mart_Text_GettingEscapeRopeJustInCase:
 	.string "I just need to use it to get back to\n"
 	.string "the entrance.$"
 
+rustboroMart_baloomGift::
+	call_if_unset 0x26A, determineBaloomType
+	goto_if_unset 0x269, baloomGift_preGift
+	goto_if_set 0x269, baloomGift_postGiftText
+	return
+
+
+determineBaloomType::
+	random 4
+	switch VAR_RESULT
+	case ( 0 ), determineBaloomType_3
+	case ( 1 ), determineBaloomType_4
+	case ( 2 ), determineBaloomType_5
+	case ( 3 ), determineBaloomType_6
+determineBaloomType_1:
+	setflag 0x26A
+	return
+
+determineBaloomType_3:
+	setvar VAR_UNUSED_0x404E, 0
+	goto determineBaloomType_1
+
+determineBaloomType_4:
+	setvar VAR_UNUSED_0x404E, 1
+	goto determineBaloomType_1
+
+determineBaloomType_5:
+	setvar VAR_UNUSED_0x404E, 2
+	goto determineBaloomType_1
+
+determineBaloomType_6:
+	setvar VAR_UNUSED_0x404E, 3
+	goto determineBaloomType_1
+
+
+baloomGift_postGiftText::
+	lockall
+	msgbox baloomGift_postGiftText_Text_0
+	releaseall
+	return
+
+
+baloomGift_preGift::
+	goto_if_set 0x268, baloomGift_amiiboFlagSet
+	goto_if_unset 0x268, baloomGift_amiiboFlagNotSet
+	return
+
+
+baloomGift_amiiboFlagNotSet::
+	lockall
+	msgbox baloomGift_amiiboFlagNotSet_Text_0
+	msgbox baloomGift_amiiboFlagNotSet_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_eq baloomGift_noText
+	msgbox baloomGift_amiiboFlagNotSet_Text_2, MSGBOX_DEFAULT
+	releaseall
+	return
+
+
+baloomGift_noText::
+	msgbox baloomGift_noText_Text_0
+	msgbox amiiboMemory
+	releaseall
+	return
+
+
+baloomGift_amiiboFlagSet::
+	msgbox baloomGift_amiiboFlagSet_Text_0
+	applymovement 5, exclamation
+	msgbox baloomGift_amiiboFlagSet_Text_1
+	getpartysize
+	compare VAR_RESULT, 6
+	goto_if_eq baloomGift_partyFull
+	msgbox baloomGift_amiiboFlagSet_Text_2
+	applymovement 5, shuffle
+	msgbox amiiboTransfer
+	msgbox baloomGift_amiiboFlagSet_Text_3
+	switch VAR_UNUSED_0x404E
+	case ( 0 ), baloomGift_amiiboFlagSet_3
+	case ( 1 ), baloomGift_amiiboFlagSet_4
+	case ( 2 ), baloomGift_amiiboFlagSet_5
+	case ( 3 ), baloomGift_amiiboFlagSet_6
+baloomGift_amiiboFlagSet_1:
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox baloomGift_amiiboFlagSet_Text_4
+	waitfanfare
+	msgbox baloomGift_amiiboFlagSet_Text_5
+	setflag 0x269
+	releaseall
+	return
+
+baloomGift_amiiboFlagSet_3:
+	givemon SPECIES_FLABEBE_YELLOW_FLOWER, 7, ITEM_NONE
+	goto baloomGift_amiiboFlagSet_1
+
+baloomGift_amiiboFlagSet_4:
+	givemon SPECIES_FLABEBE_ORANGE_FLOWER, 7, ITEM_NONE
+	goto baloomGift_amiiboFlagSet_1
+
+baloomGift_amiiboFlagSet_5:
+	givemon SPECIES_FLABEBE_WHITE_FLOWER, 7, ITEM_NONE
+	goto baloomGift_amiiboFlagSet_1
+
+baloomGift_amiiboFlagSet_6:
+	givemon SPECIES_FLABEBE_BLUE_FLOWER, 7, ITEM_NONE
+	goto baloomGift_amiiboFlagSet_1
+
+
+baloomGift_partyFull::
+	msgbox baloomGift_partyFull_Text_0
+	releaseall
+	return
+
+
+shuffle:
+	walk_in_place_right
+	walk_in_place_right
+	step_end
+
+rustbotoMart_gamerGuy::
+	lockall
+	applymovement 4, exclamation
+	waitmovement 4
+	faceplayer
+	goto_if_set 0x26A, gameText
+	call_if_unset 0x26A, determineBaloomType
+	msgbox rustbotoMart_gamerGuy_Text_0
+	goto gameText
+	return
+
+
+gameText::
+	msgbox gameText_Text_0
+	switch VAR_UNUSED_0x404E
+	case ( 0 ), gameText_3
+	case ( 1 ), gameText_4
+	case ( 2 ), gameText_5
+	case ( 3 ), gameText_6
+gameText_1:
+	release
+	releaseall
+	return
+
+gameText_3:
+	msgbox gameText_Text_1
+	goto gameText_1
+
+gameText_4:
+	msgbox gameText_Text_2
+	goto gameText_1
+
+gameText_5:
+	msgbox gameText_Text_3
+	goto gameText_1
+
+gameText_6:
+	msgbox gameText_Text_4
+	goto gameText_1
+
+
+baloomGift_postGiftText_Text_0:
+	.string "Hope you enjoy the gift!\p"
+	.string "Be sure to tell all your friends\nabout it!$"
+
+baloomGift_amiiboFlagNotSet_Text_0:
+	.string "Welcome to the PokéMart, how can I\nhelp you today?$"
+
+baloomGift_amiiboFlagNotSet_Text_1:
+	.string "Have you heard about our special\noffer?$"
+
+baloomGift_amiiboFlagNotSet_Text_2:
+	.string "Great! If you have any Amiibos we can\nscan, be sure to bring them by!$"
+
+baloomGift_noText_Text_0:
+	.string "Well!\p"
+	.string "We're holding a special offer for\nthis weekend only!\p"
+	.string "If you come in with an Amiibo, we'll\n"
+	.string "scan it and gift you a free Pokémon!$"
+
+baloomGift_amiiboFlagSet_Text_0:
+	.string "Welcome to the PokéMart, how c-$"
+
+baloomGift_amiiboFlagSet_Text_1:
+	.string "Oh! You really have one!$"
+
+baloomGift_amiiboFlagSet_Text_2:
+	.string "D'you mind if I take your Amiibo for\na second?$"
+
+baloomGift_amiiboFlagSet_Text_3:
+	.string "Theeere we go! And here you are!$"
+
+baloomGift_amiiboFlagSet_Text_4:
+	.string "You got a Baloom!$"
+
+baloomGift_amiiboFlagSet_Text_5:
+	.string "Enjoy the gift!$"
+
+baloomGift_partyFull_Text_0:
+	.string "Hmmm... looks like your party's full.\pSorry, if you want the gift, you need\nan empty slot.\pWe can't access trainers' PCs to make\ndeposits.$"
+
+rustbotoMart_gamerGuy_Text_0:
+	.string "HEY! Go away!\pCan't you see I'm busy here!?$"
+
+gameText_Text_0:
+	.string "{COLOR GREEN}{SHADOW LIGHT_GREEN}He seems to be busy playing a game.$"
+
+gameText_Text_1:
+	.string "Whoever that character is, it seems\ntheir rocket just crashed...{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}$"
+
+gameText_Text_2:
+	.string "Two characters are in a cave.\pThat rock doesn't look safe...{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}$"
+
+gameText_Text_3:
+	.string "Look at all those fruits!\pMust be a gardening game...{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}$"
+
+gameText_Text_4:
+	.string "Some kind of timed challenge is\ngoing on.\pBetter not interrupt...{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}$"
+
+amiiboMemory::
+	.string "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+	.string "You remember your mom saying to check\nthat everything is on your desk...{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}$"
+
+amiiboTransfer::
+	.string "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+	.string "You hand the clerk your Amiibo.\p"
+	.string "He takes a scanner to the bottom of it.{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}$"

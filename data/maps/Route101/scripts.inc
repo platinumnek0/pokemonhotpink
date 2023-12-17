@@ -1,5 +1,5 @@
-.set LOCALID_BIRCH, 2
-.set LOCALID_ZIGZAGOON, 4
+.set LOCALID_BIRCH, 1
+.set LOCALID_ZIGZAGOON, 3
 
 Route101_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route101_OnTransition
@@ -329,7 +329,7 @@ Route101_EventScript_signpost_Text_0:
 	.string "Route 1\n<- town / -> town$"
 
 Route101_EventScript_dampSign_Text_0:
-	.string "A slightly damp patch of grass.\nYou don't want to know much more.$"
+	.string "A slightly damp patch of grass.$"
 
 youngster_intro::
 	.string "When two trainers lock eyes- that's\nright! A Pokémon battle!$"

@@ -92,7 +92,9 @@
     "Underwater_Route128",
     "Underwater_Route129",
     "Underwater_Route105",
-    "Underwater_Route125"
+    "Underwater_Route125",
+    "route3",
+    "firstGymTown"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -430,7 +432,8 @@
     "TerraCave_End",
     "AlteringCave",
     "MeteorFalls_StevensCave",
-    "bugForest"
+    "bugForest",
+    "forestEggRoom"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",
