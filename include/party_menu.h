@@ -48,8 +48,12 @@ void LoadHeldItemIcons(void);
 void DrawHeldItemIconsForTrade(u8 *partyCounts, u8 *partySpriteIds, u8 whichParty);
 void LoadPartyMenuAilmentGfx(void);
 void CB2_ShowPartyMenuForItemUse(void);
+<<<<<<< HEAD
 void ItemUseCB_BattleScript(u8 taskId, TaskFunc task);
 void ItemUseCB_BattleChooseMove(u8 taskId, TaskFunc task);
+=======
+void CB2_ShowPartyMenuForItemUseTMCase(void);
+>>>>>>> b1957ac751240004327f42fe6f150d5271641028
 void ItemUseCB_Medicine(u8 taskId, TaskFunc task);
 void ItemUseCB_AbilityCapsule(u8 taskId, TaskFunc task);
 void ItemUseCB_AbilityPatch(u8 taskId, TaskFunc task);

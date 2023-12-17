@@ -26,9 +26,13 @@ void ItemUseOutOfBattle_BlackWhiteFlute(u8);
 void ItemUseOutOfBattle_EvolutionStone(u8);
 void ItemUseOutOfBattle_Berry(u8);
 void ItemUseOutOfBattle_EnigmaBerry(u8);
+<<<<<<< HEAD
 void ItemUseOutOfBattle_FormChange(u8);
 void ItemUseOutOfBattle_FormChange_ConsumedOnUse(u8);
 void ItemUseOutOfBattle_Honey(u8);
+=======
+void ItemUseOutOfBattle_TmCase(u8);
+>>>>>>> b1957ac751240004327f42fe6f150d5271641028
 void ItemUseOutOfBattle_CannotUse(u8);
 void ItemUseInBattle_BagMenu(u8 taskId);
 void ItemUseInBattle_PartyMenu(u8 taskId);

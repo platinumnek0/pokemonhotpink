@@ -10186,7 +10186,7 @@ const struct Item gItems[] =
         .description = sTeraShardDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .fieldUseFunc = ItemUseOutOfBattle_TmCase,
     },
 
     [ITEM_ICE_TERA_SHARD] =
