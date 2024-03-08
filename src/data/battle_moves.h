@@ -1378,11 +1378,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_STRING_SHOT] =
     {
-        #if B_UPDATED_MOVE_DATA >= GEN_6
-            .effect = EFFECT_SPEED_DOWN_HIT,
-        #else
-            .effect = EFFECT_SPEED_DOWN,
-        #endif
+        .effect = EFFECT_SPEED_DOWN_HIT,
         .power = 30,
         .type = TYPE_BUG,
         .accuracy = 100,
@@ -1870,7 +1866,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     {
         .effect = EFFECT_DEFENSE_CURL,
         .power = 0,
-        .type = TYPE_NORMAL,
+        .type = TYPE_ROCK,
         .accuracy = 0,
         .pp = 40,
         .secondaryEffectChance = 0,
@@ -1999,7 +1995,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     {
         .effect = EFFECT_MIRROR_MOVE,
         .power = 0,
-        .type = TYPE_FLYING,
+        .type = TYPE_MYSTERY,
         .accuracy = 0,
         .pp = 20,
         .secondaryEffectChance = 0,
@@ -3102,7 +3098,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         #endif
         .effect = EFFECT_PROTECT,
         .power = 0,
-        .type = TYPE_NORMAL,
+        .type = TYPE_MYSTERY,
         .accuracy = 0,
         .pp = 10,
         .secondaryEffectChance = 0,
@@ -4316,7 +4312,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         #endif
         .effect = EFFECT_FAKE_OUT,
         .power = 40,
-        .type = TYPE_NORMAL,
+        .type = TYPE_DARK,
         .accuracy = 100,
         .pp = 10,
         .secondaryEffectChance = 100,
@@ -4791,7 +4787,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+        .flags = FLAG_MAKES_CONTACT | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
     },
@@ -14148,5 +14144,47 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .flags = 0,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = 0
+    },
+    [MOVE_BAND_SLAP] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 40,
+        .type = TYPE_RUBBER,
+        .accuracy = 100,
+        .pp = 30,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+    },
+    [MOVE_BRACE] =
+    {
+        .effect = EFFECT_SPECIAL_DEFENSE_UP,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_SNATCH_AFFECTED,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_ATK_UP_1,
+    },
+    [MOVE_GOO_TRAP] =
+    {
+        .effect = EFFECT_SPEED_DOWN_HIT,
+        .power = 55,
+        .type = TYPE_RUBBER,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAGIC_COAT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_SPD_UP_1,
     },
 };

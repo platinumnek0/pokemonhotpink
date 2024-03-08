@@ -19,8 +19,6 @@ OldaleTown_EventScript_SetOldaleState::
 	return
 
 OldaleTown_EventScript_BlockWestEntrance::
-	setobjectxyperm LOCALID_FOOTPRINTS_MAN, 1, 11
-	setobjectmovementtype LOCALID_FOOTPRINTS_MAN, MOVEMENT_TYPE_FACE_LEFT
 	return
 
 OldaleTown_EventScript_MoveMartEmployee::
@@ -420,6 +418,15 @@ OldaleTown_EventScript_stellaSign::
 	return
 
 
+oldaleTown_eventScript_gardener::
+	lockall
+	faceplayer
+	msgbox oldaleTown_eventScript_gardener_Text_0
+	release
+	releaseall
+	return
+
+
 OldaleTown_EventScript_employeeDialogue_Text_0:
 	.string "Hey! Did you know?\n"
 	.string "The PokéMart and Pokémon Center used\l"
@@ -433,3 +440,6 @@ OldaleTown_EventScript_gardenSign_Text_0:
 
 OldaleTown_EventScript_stellaSign_Text_0:
 	.string "Stella's house$"
+
+oldaleTown_eventScript_gardener_Text_0:
+	.string "I started this garden a couple years\nback.\pEver since then, people have been\nplanting their own stuff and helping\ltake care of it.\pIt's great!$"

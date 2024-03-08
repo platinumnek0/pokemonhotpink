@@ -11499,8 +11499,8 @@
             "encounter_rate": 16,
             "mons": [
               {
-                "min_level": 3,
-                "max_level": 5,
+                "min_level": 4,
+                "max_level": 6,
                 "species": "SPECIES_SPINARAK"
               },
               {
@@ -11509,42 +11509,42 @@
                 "species": "SPECIES_VENIPEDE"
               },
               {
+                "min_level": 4,
+                "max_level": 6,
+                "species": "SPECIES_SNOM"
+              },
+              {
                 "min_level": 3,
                 "max_level": 5,
                 "species": "SPECIES_SNOM"
               },
               {
                 "min_level": 4,
-                "max_level": 5,
-                "species": "SPECIES_SNOM"
+                "max_level": 6,
+                "species": "SPECIES_FOONGUS"
               },
               {
-                "min_level": 3,
-                "max_level": 5,
-                "species": "SPECIES_DARUMAKA"
-              },
-              {
-                "min_level": 3,
-                "max_level": 5,
+                "min_level": 4,
+                "max_level": 6,
                 "species": "SPECIES_SEEDOT"
               },
               {
                 "min_level": 4,
                 "max_level": 5,
-                "species": "SPECIES_DARUMAKA"
+                "species": "SPECIES_FOONGUS"
               },
               {
-                "min_level": 3,
+                "min_level": 4,
                 "max_level": 5,
                 "species": "SPECIES_SEEDOT"
               },
               {
-                "min_level": 3,
-                "max_level": 5,
+                "min_level": 4,
+                "max_level": 7,
                 "species": "SPECIES_SEEDOT"
               },
               {
-                "min_level": 3,
+                "min_level": 4,
                 "max_level": 5,
                 "species": "SPECIES_WURMPLE"
               },
@@ -11555,7 +11555,7 @@
               },
               {
                 "min_level": 4,
-                "max_level": 6,
+                "max_level": 7,
                 "species": "SPECIES_CORPHISH"
               }
             ]
@@ -11591,12 +11591,12 @@
             ]
           },
           "fishing_mons": {
-            "encounter_rate": 30,
+            "encounter_rate": 40,
             "mons": [
               {
                 "min_level": 3,
                 "max_level": 5,
-                "species": "SPECIES_LOTAD"
+                "species": "SPECIES_GOLDEEN"
               },
               {
                 "min_level": 4,
@@ -11783,47 +11783,17 @@
               }
             ]
           },
-          "water_mons": {
-            "encounter_rate": 0,
-            "mons": [
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              }
-            ]
-          },
           "fishing_mons": {
             "encounter_rate": 0,
             "mons": [
               {
-                "min_level": 5,
+                "min_level": 4,
                 "max_level": 5,
-                "species": "SPECIES_LOTAD"
+                "species": "SPECIES_GOLDEEN"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 4,
+                "max_level": 6,
                 "species": "SPECIES_CHEWTLE"
               },
               {
@@ -11865,6 +11835,144 @@
                 "min_level": 5,
                 "max_level": 5,
                 "species": "SPECIES_NONE"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_ROUTE4",
+          "base_label": "groute40",
+          "land_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_RATTATA"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_SPINARAK"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_SEEDOT"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_DARUMAKA"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_LILLIPUP"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_LILLIPUP"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TYROGUE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TYROGUE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_DARUMAKA"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_RATTATA"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_WURMPLE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_WURMPLE"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_FIRST_GYM_TOWN",
+          "base_label": "gfirstGymTown0",
+          "land_mons": {
+            "encounter_rate": 1,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_KLINK"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_KLINK"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_KLINK"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_KLINK"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_KLINK"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_KLINK"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_KLINK"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_KLINK"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_KLINK"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_KLINK"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_KLINK"
+              },
+              {
+                "min_level": 15,
+                "max_level": 15,
+                "species": "SPECIES_KLINK"
               }
             ]
           }

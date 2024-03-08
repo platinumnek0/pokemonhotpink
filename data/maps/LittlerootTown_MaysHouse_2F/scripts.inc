@@ -84,9 +84,9 @@ LittlerootTown_MaysHouse_2F_EventScript_MeetMay::
 LittlerootTown_MaysHouse_2F_EventScript_MeetMayNorth::
 	applymovement LOCALID_RIVAL, LittlerootTown_MaysHouse_2F_Movement_MayApproachPlayerNorth
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
-	msgbox RivalsHouse_2F_Text_MayWhoAreYou, MSGBOX_DEFAULT
+	msgbox quigleysHouse_intro, MSGBOX_DEFAULT
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_MaysHouse_2F_Movement_PlayerWatchMayNorth
 	applymovement LOCALID_RIVAL, LittlerootTown_MaysHouse_2F_Movement_MayWalkToPCNorth
@@ -98,7 +98,7 @@ LittlerootTown_MaysHouse_2F_EventScript_MeetMaySouth::
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
-	msgbox RivalsHouse_2F_Text_MayWhoAreYou, MSGBOX_DEFAULT
+	msgbox quigleysHouse_intro, MSGBOX_DEFAULT
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_MaysHouse_2F_Movement_PlayerWatchMaySouth
 	applymovement LOCALID_RIVAL, LittlerootTown_MaysHouse_2F_Movement_MayWalkToPCSouth
@@ -110,7 +110,7 @@ LittlerootTown_MaysHouse_2F_EventScript_MeetMayWest::
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
-	msgbox RivalsHouse_2F_Text_MayWhoAreYou, MSGBOX_DEFAULT
+	msgbox quigleysHouse_intro, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_RIVAL, LittlerootTown_MaysHouse_2F_Movement_MayWalkToPCWest
 	waitmovement 0
@@ -121,7 +121,7 @@ LittlerootTown_MaysHouse_2F_EventScript_MeetMayEast::
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
-	msgbox RivalsHouse_2F_Text_MayWhoAreYou, MSGBOX_DEFAULT
+	msgbox quigleysHouse_intro, MSGBOX_DEFAULT
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_MaysHouse_2F_Movement_PlayerWatchMayEast
 	applymovement LOCALID_RIVAL, LittlerootTown_MaysHouse_2F_Movement_MayWalkToPCEast
@@ -137,21 +137,21 @@ LittlerootTown_MaysHouse_2F_Movement_MayEnters:
 LittlerootTown_MaysHouse_2F_Movement_MayApproachPlayerNorth:
 	walk_right
 	walk_right
-	walk_down
-	walk_down
 	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	face_left
 	step_end
 
 LittlerootTown_MaysHouse_2F_Movement_MayWalkToPCNorth:
 	walk_up
 	walk_up
 	walk_up
-	walk_in_place_faster_right
 	walk_right
 	walk_right
-	walk_right
-	walk_right
-	walk_in_place_faster_up
+	face_up
 	step_end
 
 LittlerootTown_MaysHouse_2F_Movement_PlayerWatchMayNorth:
@@ -432,10 +432,21 @@ LittlerootTown_MaysHouse_2F_EventScript_QuigleyPC_Text_0:
 	.string "It's Quigley's PC. Better not snoop...$"
 
 LittlerootTown_MaysHouse_2F_EventScript_QuigleyDrawers_Text_0:
-	.string "The shelves are full of Nintendo games!$"
+	.string "The shelves are full of Nintendo games.$"
 
 LittlerootTown_MaysHouse_2F_EventScript_QuigleyConsole1_Text_0:
-	.string "It's a Nintendo Switch that looks conspicuously\nlike a Gamecube!$"
+	.string "It's a Nintendo Switch that looks\nconspicuously like a Gamecube!$"
 
 LittlerootTown_MaysHouse_2F_EventScript_QuigleyConsole2_Text_0:
-	.string "It's a Wii that looks\nconspicuously like a Gamecube!$"
+	.string "It's a Wii that looks conspicuously\nlike a Gamecube!$"
+
+quigleysHouse_intro::
+	.string "Hey! Who the hell are you?\p"
+	.string "… … … … … …\p"
+	.string "Oh. So you're Stella's friend.\p"
+	.string "She doesn't live here.\n You know that, right?\p"
+	.string "…who am I?\p"
+	.string "Um. Hello? Quigley? Her cousin?\p"
+	.string "Friends for 5 years and you don't even\nremember her family...\lYou really are dense, huh?\p"
+	.string "If you really wanna go see Stella, I'm\npretty sure she's out by Route 2.\p"
+	.string "Now screw off, I got stuff to do.\p$"

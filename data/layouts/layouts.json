@@ -165,7 +165,7 @@
       "id": "LAYOUT_ROUTE101",
       "name": "Route101_Layout",
       "width": 56,
-      "height": 26,
+      "height": 36,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Route101/border.bin",
@@ -184,8 +184,8 @@
     {
       "id": "LAYOUT_ROUTE103",
       "name": "Route103_Layout",
-      "width": 80,
-      "height": 66,
+      "width": 48,
+      "height": 70,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Route103/border.bin",
@@ -4414,8 +4414,8 @@
     {
       "id": "LAYOUT_BUG_FOREST",
       "name": "bugForest_Layout",
-      "width": 66,
-      "height": 52,
+      "width": 68,
+      "height": 68,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/bugForest/border.bin",
@@ -4434,7 +4434,7 @@
     {
       "id": "LAYOUT_ROUTE3",
       "name": "route3_Layout",
-      "width": 52,
+      "width": 66,
       "height": 48,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
@@ -4450,6 +4450,16 @@
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/firstGymTown/border.bin",
       "blockdata_filepath": "data/layouts/firstGymTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE4",
+      "name": "route4_Layout",
+      "width": 34,
+      "height": 58,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/route4/border.bin",
+      "blockdata_filepath": "data/layouts/route4/map.bin"
     }
   ]
 }

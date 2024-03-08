@@ -3260,6 +3260,18 @@ static const u8 sHydroSteamDescription[] = _(
     "This move's power increases\n"
     "under harsh sunlight.");
 
+static const u8 sBandSlapDescription[] = _(
+    "The foe is smacked with a\n"
+    "stretchy limb.");
+
+static const u8 sBraceDescription[] = _(
+    "Prepares for an attack\n"
+    "and ups Sp.Def.");
+
+static const u8 sGooTrapDescription[] = _(
+    "Flings sticky slime to\n"
+    "lower foe Speed.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4099,4 +4111,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_MAGICAL_TORQUE - 1] = sMagicalTorqueDescription,
     [MOVE_PSYBLADE - 1] = sPsybladeDescription,
     [MOVE_HYDRO_STEAM - 1] = sHydroSteamDescription,
+    [MOVE_BAND_SLAP - 1] = sBandSlapDescription,
+    [MOVE_BRACE - 1] = sBraceDescription,
+    [MOVE_GOO_TRAP - 1] = sGooTrapDescription,
 };

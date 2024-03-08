@@ -2024,8 +2024,8 @@ const u16 gFrontierPassCancelButtonHighlighted_Tilemap[] = INCBIN_U16("graphics/
 const u16 gBerryCrush_Crusher_Pal[] = INCBIN_U16("graphics/berry_crush/crusher.gbapal");
 const u32 gBerryCrush_Crusher_Gfx[] = INCBIN_U32("graphics/berry_crush/crusher.4bpp.lz");
 const u32 gBerryCrush_TextWindows_Tilemap[] = INCBIN_U32("graphics/berry_crush/text_windows.bin.lz");
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
 
 // random garbage at the end.
 static const u8 sEmpty3[0x54BAC] = {0};
@@ -2048,4 +2048,4 @@ const u32 gUnknown_8E85068[] = INCBIN_U32("graphics/tm_case/unk_8E85068.gbapal.l
 const u8 gUnknown_8E99118[] = INCBIN_U8("graphics/tm_case/unk_8E99118.4bpp");
 const u16 gTMCaseMainWindowPalette[] = INCBIN_U16("graphics/tm_case/unk_841F408.gbapal");
 
->>>>>>> b1957ac751240004327f42fe6f150d5271641028
+//>>>>>>> b1957ac751240004327f42fe6f150d5271641028

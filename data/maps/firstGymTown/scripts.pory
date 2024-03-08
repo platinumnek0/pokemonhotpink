@@ -1,1 +1,214 @@
-mapscripts firstGymTown_MapScripts {}
+mapscripts firstGymTown_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: porkbellyOnTransition
+}
+
+script porkbelly_eventScript_gymSign{
+    msgbox(johnnyGymSign MSGBOX_SIGN)
+}
+text johnnyGymSign{
+    "Porkbelly Gym\nLeader: Johnny\l“The New Trainer's First Test”"
+}
+
+script porkbelly_eventScript_townSign{
+    msgbox(porkbellySign, MSGBOX_SIGN)
+}
+text porkbellySign{
+    "PORKBELLY\n“A town that's never boar-ing”"
+}
+
+script porkbelly_eventScript_preventExit_west{
+    lockall
+    applymovement(3, exclamation)
+    applymovement(3, porkbellyGuyLookDown)
+    msgbox("Woah woah woah!\pI can't let ya through here, kid.")
+    applymovement(OBJ_EVENT_ID_PLAYER, porkbellyStepBack)
+    waitmovement(OBJ_EVENT_ID_PLAYER)
+    msgbox("Somethin' happened up on Mt. Bighair,\n'n there was a big rockslide all over\lRoute 6.\pMe 'n my buddies are try'n'a clear it all\nout.\pBut til then, no one can pass.")
+    applymovement(3, porkbellyGuyLookLeft)
+    releaseall
+}
+movement porkbellyGuyLookDown{
+    face_down
+}
+movement porkbellyStepBack{
+    walk_right
+    face_left
+}
+movement porkbellyGuyLookLeft{
+    face_left
+}
+
+script porkbelly_eventScript_preventExit_north{
+    lockall
+    applymovement(4, porkbellyHiker_turnAndSpeak)
+    msgbox("So then I says, I says…")
+    waitmessage
+    applymovement(6, porkbellyGentleman_turnAndSpeak)
+    msgbox("Well?")
+    waitmessage
+    applymovement(4, porkbellyHiker_turnAndSpeak)
+    msgbox("Well, then I turns to her, and I says,\nI says…\p“'ey! You!”")
+    waitmessage
+    msgbox("(You have a feeling this is going to go\non for a while.)")
+    releaseall   
+}
+movement porkbellyHiker_turnAndSpeak{
+    face_right
+    walk_in_place_right*3
+}
+movement porkbellyGentleman_turnAndSpeak{
+    walk_in_place_left*3
+}
+
+script porkbelly_eventScript_politicsBear{
+    lockall
+    msgbox(politicsBearText, MSGBOX_NPC)
+    release
+    releaseall
+}
+text politicsBearText{
+    "The old League Champion had to step down\nrecently.\p"
+    "Since then Chairman Kanny's been trying\nto recruit a new one.\p"
+    "So technically, we don't even have a\nChampion right now.\p"
+    "Thaaaaat's politics!"
+}
+
+script porkbellyRoute4Block{
+    lockall
+    applymovement(9, exclamation)
+    applymovement(9, route4blockadeFaceRight)
+    waitmovement(9)
+    msgbox("Hey! I can't let you past!")
+    waitmessage
+    applymovement(OBJ_EVENT_ID_PLAYER, playerStepUp1)
+    msgbox("There's been reports of strange\nPokémon attacking people!\pI don't know how true it is…\nBut I'm not letting you through!\lI don't wanna get a kid hurt!\l…potentially!")
+    releaseall
+}
+movement route4blockadeFaceRight{
+    walk_in_place_right*2
+}
+movement playerStepUp1{
+    walk_up
+    face_down
+}
+
+script porkbellyRoute4IsBlocked{
+    lockall
+    faceplayer
+    msgbox("I've heard there have been some Pokémon\nattacks on Route 4.\pThe descriptions don't match anything\nI've heard…\lBut, best to be safe.")
+    release
+    releaseall
+}
+script porkbellyRoute4IsNotBlocked{
+    lockall
+    faceplayer
+    msgbox("Did you see it!?\nDid you really see it!?\lThat strange Pokémon!?\pThat must've been CRAZY!")
+    release
+    releaseall
+}
+script porkbellyRoute4Guy
+{
+    goto_if_eq(VAR_RUSTBORO_CITY_STATE, 0, porkbellyRoute4IsBlocked)
+    goto_if_eq(VAR_RUSTBORO_CITY_STATE, 1, porkbellyRoute4IsNotBlocked)
+}
+
+script porkbellyGymClearToggle{
+    lockall
+    switch(var(VAR_RUSTBORO_CITY_STATE)){
+    case(0): setvar(VAR_RUSTBORO_CITY_STATE, 1) msgbox("Set gym to CLEARED.") setflag(FLAG_DEFEATED_RUSTBORO_GYM)
+    case(1): setvar(VAR_RUSTBORO_CITY_STATE, 0) msgbox ("Set gym to NOT CLEARED.") clearflag(FLAG_DEFEATED_RUSTBORO_GYM)
+    }
+    releaseall
+}
+script setGymToClear{
+    setvar(VAR_RUSTBORO_CITY_STATE, 1)
+}
+script setGymToUnclear{
+    setvar(VAR_RUSTBORO_CITY_STATE, 0)
+}
+
+script porkbellyMoveRoadblock{
+    setobjectxyperm(9, 25, 49)
+}
+script porkbellyOnTransition{
+    call_if_unset(FLAG_DEFEATED_RUSTBORO_GYM, porkbellyMoveRoadblock)
+    call_if_unset(FLAG_DEFEATED_RUSTBORO_GYM, porkbellyHideKanny)
+    call_if_set(FLAG_DEFEATED_RUSTBORO_GYM, porkbellyShowKanny)
+}
+
+script porkbellyHideKanny{
+    setflag(FLAG_UNUSED_0x493)
+}
+
+script porkbellyShowKanny{
+    clearflag(FLAG_UNUSED_0x493)
+}
+
+script porkbellyKannyAppearance{
+    lockall
+    setvar(VAR_RUSTBORO_CITY_STATE, 2)
+    applymovement(10, kannyEntrance)
+    waitmovement(10)
+    applymovement(OBJ_EVENT_ID_PLAYER, playerLookDown)
+    waitmovement(OBJ_EVENT_ID_PLAYER)
+    msgbox(kannyEncounter1)
+    msgbox(kannyEncounterYesNo, MSGBOX_YESNO)
+    compare(VAR_RESULT, 0)
+    goto_if_eq(porkbellyKannyAppearanceNo)
+    msgbox(kannyEncounterYes, MSGBOX_AUTOCLOSE)
+    applymovement(10, kannyLeave)
+    waitmovement(10)
+    removeobject(10)
+    releaseall
+}
+script porkbellyKannyAppearanceNo{
+    applymovement(10, exclamation)
+    msgbox(kannyEncounterNo, MSGBOX_AUTOCLOSE)
+    applymovement(10, kannyLeave)
+    waitmovement(10)
+    removeobject(10)
+    releaseall
+}
+movement kannyEntrance{
+    walk_down*7
+    walk_left*5
+    walk_up*1
+}
+movement kannyLeave{
+    walk_left
+    walk_down*8
+}
+movement playerLookDown{
+    face_down
+}
+text kannyEncounter1{
+    "Well! That was some, er, mighty\nimpressive fightin' back there, eh?\p"
+    "The Gagil League streams Gym battles,\ner, uh, online, that's how I saw.\p"
+    "You must be wonderin' who I am.\p"
+    "I'm the, er, Chairman of the Gagil\nPokémon League.\lMy name's Gregory, but you can just\lcall me, er, uh, Chairman Kanny.\p"
+    "Say, kid.\p"
+    "We've been having some, er, legal\nissues, with the League lately.\lThe last Champ resigned, and we uh,\lhaven't been able to find a suitable,\ler, replacement.\p"
+    "Howzabout YOU step up ta bat?"
+}
+text kannyEncounterYesNo{
+    "Whaddaya say, kid?"
+}
+text kannyEncounterYes{
+    "Now that's what I like ta hear!\p"
+    "You've already got, er, one down,\ndon't ya?\p"
+    "That means ya got seven ta go.\nThe next gym should be, er, just west\lof Beaston.\lIt's in Hamborough.\p"
+    "I'll, er, uh, catch up ta you there\nafter that battle, alright?\p"
+    "…by the way, I just realized.\lI never, er, got your name, did I?\p"
+    "{PLAYER}?\p"
+    "Well then, {PLAYER}, I'll see ya in,\ner, a while, yeah?\p"
+    "Good luck!"
+}
+text kannyEncounterNo{
+    "What!?\p"
+    "Come on, you can't be tellin' me now\nthat you, um, don't like battlin'\llike that.\p"
+    "Tell ya what, kid.\p"
+    "You give the, er, Gym over in\nHamborough a roughin' up.\p"
+    "I'll stop by after the battle to\ncheck up on ya.\p"
+    "Sound good?\nGreat!\p"
+    "Well, be, er, seein' ya, kid!"
+}

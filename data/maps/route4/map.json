@@ -1,0 +1,130 @@
+{
+  "id": "MAP_ROUTE4",
+  "name": "route4",
+  "layout": "LAYOUT_ROUTE4",
+  "music": "MUS_ROUTE104",
+  "region_map_section": "MAPSEC_ROUTE_104",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_LITTLEROOT_TOWN",
+      "offset": -2,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_FIRST_GYM_TOWN",
+      "offset": -10,
+      "direction": "up"
+    }
+  ],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_DUSCLOPS",
+      "x": 17,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_UNUSED_0x021"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LEAF",
+      "x": 17,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_UNUSED_0x021"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
+      "x": 17,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_UNUSED_0x021"
+    }
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_RUSTBORO_CITY_STATE",
+      "var_value": "2",
+      "script": "route4_walkDown_left"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_RUSTBORO_CITY_STATE",
+      "var_value": "2",
+      "script": "route4_walkDown_middle"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_RUSTBORO_CITY_STATE",
+      "var_value": "2",
+      "script": "route4_walkDown_right"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_RUSTBORO_CITY_STATE",
+      "var_value": "3",
+      "script": "route4_postKo_right"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_RUSTBORO_CITY_STATE",
+      "var_value": "3",
+      "script": "route4_postKo_left"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_RUSTBORO_CITY_STATE",
+      "var_value": "3",
+      "script": "route4_postKo_middle"
+    }
+  ],
+  "bg_events": [
+
+  ]
+}

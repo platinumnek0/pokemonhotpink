@@ -856,6 +856,9 @@ gBattleAnims_Moves::
 	.4byte Move_MAGICAL_TORQUE
 	.4byte Move_PSYBLADE
 	.4byte Move_HYDRO_STEAM
+	.4byte Move_BAND_SLAP
+	.4byte Move_BRACE 
+	.4byte Move_GOO_TRAP
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -30807,3 +30810,76 @@ SoulStealingSevenStarStrikeExplosion:
 	launchtemplate gSoulStealExplosionSpriteTemplate 0x83 0x4 0x10 0x10 ANIM_TARGET 0x1
 	delay 0x6
 	return
+
+Move_BAND_SLAP:
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	playsewithpan SE_M_DOUBLE_SLAP, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	end
+
+Move_BRACE:
+	loadspritegfx ANIM_TAG_BREATH
+	createvisualtask AnimTask_GrowAndShrink, 2
+	playsewithpan SE_M_SWAGGER, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	createsprite gBreathPuffSpriteTemplate, ANIM_ATTACKER, 2
+	loopsewithpan SE_M_SWAGGER, SOUND_PAN_ATTACKER, 4, 2
+	waitforvisualfinish
+	end
+
+Move_GOO_TRAP:
+	loadspritegfx ANIM_TAG_MUD_SAND
+	playsewithpan SE_M_BUBBLE3, SOUND_PAN_ATTACKER
+	createsprite gMudBombToss, ANIM_TARGET, 2, 20, 0, 0, 0, 35, -25
+	delay 5
+	playsewithpan SE_M_BUBBLE3, SOUND_PAN_ATTACKER
+	createsprite gMudBombToss, ANIM_TARGET, 2, 20, 0, 0, 0, 35, -25
+	delay 5
+	playsewithpan SE_M_BUBBLE3, SOUND_PAN_ATTACKER
+	createsprite gMudBombToss, ANIM_TARGET, 2, 20, 0, 0, 0, 35, -25
+	delay 5
+	playsewithpan SE_M_BUBBLE3, SOUND_PAN_ATTACKER
+	createsprite gMudBombToss, ANIM_TARGET, 2, 20, 0, 0, 0, 35, -25
+	delay 11
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 5, 1
+	createsprite gMudBombSplash, ANIM_TARGET, 2, 42, 27, 20
+	createsprite gMudBombSplash, ANIM_TARGET, 2, 42, 27, 20
+	createsprite gMudBombSplash, ANIM_TARGET, 2, -27, 44, 20
+	createsprite gMudBombSplash, ANIM_TARGET, 2, 39, -28, 20
+	createsprite gMudBombSplash, ANIM_TARGET, 2, -42, -42, 20
+	playsewithpan SE_M_VITAL_THROW2, SOUND_PAN_TARGET
+	delay 5
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 5, 1
+	createsprite gMudBombSplash, ANIM_TARGET, 2, 0, 40, 20
+	createsprite gMudBombSplash, ANIM_TARGET, 2, -8, -44, 20
+	createsprite gMudBombSplash, ANIM_TARGET, 2, -46, -28, 20
+	createsprite gMudBombSplash, ANIM_TARGET, 2, 46, 9, 20
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 5
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 5, 1
+	createsprite gMudBombSplash, ANIM_TARGET, 2, 42, 0, 20
+	createsprite gMudBombSplash, ANIM_TARGET, 2, -43, -12, 20
+	createsprite gMudBombSplash, ANIM_TARGET, 2, 16, -46, 20
+	createsprite gMudBombSplash, ANIM_TARGET, 2, -16, 44, 20
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 5
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 5, 1
+	createsprite gMudBombSplash, ANIM_TARGET, 2, 0, 40, 20
+	createsprite gMudBombSplash, ANIM_TARGET, 2, -8, -44, 20
+	createsprite gMudBombSplash, ANIM_TARGET, 2, -46, -28, 20
+	createsprite gMudBombSplash, ANIM_TARGET, 2, 46, 9, 20
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 5
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 5, 1
+	createsprite gMudBombSplash, ANIM_TARGET, 2, 42, 0, 20
+	createsprite gMudBombSplash, ANIM_TARGET, 2, -43, -12, 20
+	createsprite gMudBombSplash, ANIM_TARGET, 2, 16, -46, 20
+	createsprite gMudBombSplash, ANIM_TARGET, 2, -16, 44, 20
+	waitforvisualfinish
+	end

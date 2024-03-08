@@ -1001,6 +1001,7 @@ static const u8 sAbilitiesAffectedByMoldBreaker[] =
     [ABILITY_GOOD_AS_GOLD] = 1,
     [ABILITY_PURIFYING_SALT] = 1,
     [ABILITY_WELL_BAKED_BODY] = 1,
+    [ABILITY_FLYTRAP] = 1,
 };
 
 static const u8 sAbilitiesNotTraced[ABILITIES_COUNT] =
@@ -5073,6 +5074,10 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 break;
             case ABILITY_EARTH_EATER:
                 if (moveType == TYPE_GROUND)
+                    effect = 1;
+                break;
+            case ABILITY_FLYTRAP:
+                if (moveType == TYPE_BUG)
                     effect = 1;
                 break;
             }

@@ -7512,7 +7512,7 @@ static void Cmd_yesnoboxstoplearningmove(void)
         else if (JOY_NEW(B_BUTTON))
         {
             PlaySE(SE_SELECT);
-            gBattlescriptCurrInstr = cmd->noInstr;
+            gBattlescriptCurrInstr += 5;
             HandleBattleWindow(YESNOBOX_X_Y, WINDOW_CLEAR);
         }
         break;

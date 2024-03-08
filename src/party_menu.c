@@ -1460,15 +1460,15 @@ static void Task_HandleCancelChooseMonYesNoInput(u8 taskId)
 {
     switch (Menu_ProcessInputNoWrapClearOnChoose())
     {
+    case MENU_B_PRESSED:
+    PlaySE(SE_SELECT);
+    //fallthrough
     case 0:
         gPartyMenuUseExitCallback = FALSE;
         gPartyMenu.slotId = PARTY_SIZE + 1;
         ClearSelectedPartyOrder();
         Task_ClosePartyMenu(taskId);
         break;
-    case MENU_B_PRESSED:
-        PlaySE(SE_SELECT);
-        // fallthrough
     case 1:
         Task_ReturnToChooseMonAfterText(taskId);
         break;

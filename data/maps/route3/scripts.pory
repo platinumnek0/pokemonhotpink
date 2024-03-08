@@ -2,13 +2,77 @@ mapscripts route3_MapScripts {}
 
 script randomTest{
     lockall
-    random(4)
-    switch(var(VAR_RESULT))
-    {
-        case(0): msgbox("Yellow")
-        case(1): msgbox("Purple")
-        case(2): msgbox("Pink")
-        case(3): msgbox("Cyan")
-    }
+    msgbox("Trainer Tip!\pExplore every path you can in\na new location. You never know\lwhat you'll find!")
     releaseall
+}
+
+script route3_eventScript_camperBattle{
+    trainerbattle_single(TRAINER_BEAU, route3_camperIntro, route3_camperDefeat)
+    lockall
+    msgbox(route3_camperPostbattle)
+    releaseall
+}
+text route3_camperIntro{
+    "First rule of the Berry Scout code:\nnever admit defeat!"
+}
+text route3_camperDefeat{
+    "…crap…"
+}
+text route3_camperPostbattle{
+    "Uh… second rule of the Berry Scout\ncode… um… okay, I never paid\lattention."
+}
+
+script route3_eventScript_beautyBattle{
+    trainerbattle_single(TRAINER_MELISSA, route3_beautyIntro, route3_beautyDefeat)
+    lockall
+    msgbox(route3_beautyPostBattle)
+    releaseall
+}
+text route3_beautyIntro{
+    "I'll wipe the floor with you!"
+}
+text route3_beautyDefeat{
+    "You CANNOT be serious right now."
+}
+text route3_beautyPostBattle{
+    "Whatever you did to win, don't even tell\nme."
+}
+
+script route3_eventScript_lassBattle{
+    trainerbattle_single(TRAINER_JANICE, route3_lassIntro, route3_lassDefeat)
+    lockall
+    msgbox(route3_lassPostBattle)
+    releaseall
+}
+text route3_lassIntro{
+    "Hey! You! Look at this!"
+}
+text route3_lassDefeat{
+    "Maybe next time…"
+}
+text route3_lassPostBattle{
+    "Okay so maybe I messed up.\pBut I'll get it right, I swear!"
+}
+
+script route3_eventScript_bugCatcherBattle{
+    trainerbattle_single(TRAINER_RICK, route3_catcherIntro, route3_catcherDefeat)
+    lockall
+    msgbox(route3_catcherPostBattle)
+    releaseall
+}
+text route3_catcherIntro{
+    "Well, well, well, what do we have here?"
+}
+text route3_catcherDefeat{
+    "Stomped!"
+}
+text route3_catcherPostBattle{
+    "If I could call up my buddy, your team\nwould be splattered in a second!"
+}
+
+script route3_eventScript_guy{
+    msgbox(route3_text_guy, MSGBOX_NPC)
+}
+text route3_text_guy{
+    "Hey, don't tell that Bug Catcher over\nhere, but uh…\pI think I'm a little lost."
 }

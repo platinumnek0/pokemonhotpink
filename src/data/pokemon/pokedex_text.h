@@ -703,10 +703,10 @@ const u8 gSeadraPokedexText[] = _(
     "mercy to anything approaching its nest.");
 
 const u8 gGoldeenPokedexText[] = _(
-    "In the springtime, schools of Goldeen\n"
-    "can be seen swimming up falls and rivers.\n"
-    "It metes out staggering damage with its\n"
-    "single horn.");
+    "Weak on its own, it lives in large schools\n"
+    "for protection. As a Piscolo ages, it gains\n"
+    "more dots on its side and is revered by\n"
+    "its kin.");
 
 const u8 gSeakingPokedexText[] = _(
     "It punches holes in boulders on stream-\n"
@@ -1628,7 +1628,7 @@ const u8 gLudicoloPokedexText[] = _(
     "quail even when it faces a tough opponent.");
 
 const u8 gSeedotPokedexText[] = _(
-    "It looks like a bench. No one knows why.");
+    "It looks like a bench.\nNo one knows why.");
 
 const u8 gNuzleafPokedexText[] = _(
     "A forest-dwelling Pokémon that is skilled\n"
@@ -3528,10 +3528,9 @@ const u8 gEscavalierPokedexText[] = _(
     "protects their whole body.");
 
 const u8 gFoongusPokedexText[] = _(
-    "It lures Pokémon in with its pattern that\n"
-    "looks just like a Poké Ball, then releases\n"
-    "its poison spores. Why it resembles a\n"
-    "Poké Ball is unknown.");
+    "Eats any organic matter nearby. Ultimately\n"
+    "harmless, if a bit annoying. Known to reek\n"
+    "of decay.\n");
 
 const u8 gAmoongussPokedexText[] = _(
     "It lures prey close by dancing and waving\n"
@@ -4002,11 +4001,10 @@ const u8 gPyroarPokedexText[] = _(
     "protect the pride's cubs. They viciously\n"
     "threaten any challenger.");
 
-const u8 gFlabebePokedexText[] = _(
-    "When it finds a flower it likes, it dwells\n"
-    "on that flower its whole life long.\n"
-    "It floats on the wind's embrace with\n"
-    "an untroubled heart.");
+const u8 gFlabebePokedexText[] = _(          //\n
+    "Built to follow orders, it seeks out a\n"
+    "master to serve. It comes in four kinds, each\n"
+    "excelling at something different.");
 
 const u8 gFloettePokedexText[] = _(
     "When the flowers of a well-tended flower\n"
@@ -4978,9 +4976,10 @@ const u8 gDubwoolPokedexText[] = _(
     "moment you set foot on it.");
 
 const u8 gChewtlePokedexText[] = _(
-    "Apparently the itch of its teething\n"
-    "impels it to snap its jaws at anything\n"
-    "in front of it.");
+    "Because it's rock-hard and has a sharp\n"
+    "spike, its shell is both Shellite's offense\n"
+    "and defense. Despite its name its shell is\n"
+    "quite heavy.");
 
 const u8 gDrednawPokedexText[] = _(
     "With jaws that can shear through steel\n"

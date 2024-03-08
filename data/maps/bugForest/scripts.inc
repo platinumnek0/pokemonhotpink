@@ -74,6 +74,22 @@ bugForest_eventScript_gentlemanBattle::
 	end
 
 
+bugForest_EventScript_bugCatcherBattle::
+	trainerbattle_single TRAINER_DAVIS, bugf_catcher_intro, bugf_catcher_defeat, bugForest_eventSript_bugCatcherDisappear
+	return
+
+
+bugForest_eventSript_bugCatcherDisappear::
+	lockall
+	msgbox bugForest_eventSript_bugCatcherDisappear_Text_0
+	fadescreen 1
+	setobjectxy 3, 65, 0
+	setflag FLAG_UNUSED_0x26B
+	fadescreen 0
+	releaseall
+	return
+
+
 martEventIntro::
 	lockall
 	applymovement 8, martTurnAround
@@ -224,6 +240,9 @@ bugForest_EventScript_fatGuy_Text_0:
 bugForest_EventScript_rockGuy_Text_0:
 	.string "Look at this rock. Wonderful, isn't it?\nI've done some testing. Most of its\lcomposition is minerals not seen in this\larea at ALL! Cool, right!?$"
 
+bugForest_eventSript_bugCatcherDisappear_Text_0:
+	.string "You might have bested me this\ntime...\pBut soon... you'll see the TRUE POWER\nof my bugs...$"
+
 martEventIntro_Text_0:
 	.string "Man... nothing's biting today...$"
 
@@ -283,3 +302,9 @@ bugf_gentleman_defeat::
 
 bugf_gentleman_postbattle::
 	.string "I've gotta admit, kid, you're\npretty humble!$"
+
+bugf_catcher_intro::
+	.string "TRAINER SPOTTED!\nBugs, ENGAGE!$"
+
+bugf_catcher_defeat::
+	.string "MY BUGS!?!?!?$"

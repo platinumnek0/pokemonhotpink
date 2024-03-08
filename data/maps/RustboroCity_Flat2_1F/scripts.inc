@@ -22,3 +22,10 @@ RustboroCity_Flat2_1F_Text_DevonWorkersLiveHere:
 RustboroCity_Flat2_1F_Text_Skitty:
 	.string "SKITTY: Gyaaaah!$"
 
+rustboro_flat2_1f_oldLady::
+	msgbox rustboroFlatOldLady, MSGBOX_NPC
+	return
+
+
+rustboroFlatOldLady::
+	.string "I've always been a little skeptical o'\nthose Evo Co. folk.\pBut their President's been behind some'a\nthe best tech around...\pIt's a real moral dilemma.$"

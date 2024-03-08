@@ -176,3 +176,61 @@ RustboroCity_Flat1_2F_Text_ThankYouIllGiveYouWallpaper:
 RustboroCity_Flat1_2F_Text_ItsAPokemonPlushDoll:
 	.string "It's a POKéMON plush DOLL!$"
 
+rustboro_flat1_2f_tv::
+	goto_if_set 0x26C, shoeGoodbyeSeen
+	lockall
+	msgbox rustboro_flat1_2f_tv_Text_0
+	releaseall
+	setflag 0x26C
+	return
+
+
+shoeGoodbyeSeen::
+	lockall
+	msgbox shoeGoodbyeSeen_Text_0
+	releaseall
+	return
+
+
+rustboro_flat1_2f_tvKid::
+	lockall
+	faceplayer
+	msgbox rustboro_flat1_2f_tvKid_Text_0
+	applymovement 1, lookAtTV
+	release
+	releaseall
+	return
+
+
+lookAtTV:
+	face_up
+	step_end
+
+rustboro_flat1_2f_gamerKid::
+	lockall
+	msgbox rustboro_flat1_2f_gamerKid_Text_0
+	releaseall
+	return
+
+
+kitfiskDoll::
+	lockall
+	msgbox kitfiskDoll_Text_0
+	releaseall
+	return
+
+
+rustboro_flat1_2f_tv_Text_0:
+	.string "The TV is on.\pA man is saying goodbye to a shoe.\pYou've never seen this before.$"
+
+shoeGoodbyeSeen_Text_0:
+	.string "The TV is on.\pA man is saying goodbye to a shoe.\pYou've seen this before.$"
+
+rustboro_flat1_2f_tvKid_Text_0:
+	.string "This is my favorite episode!$"
+
+rustboro_flat1_2f_gamerKid_Text_0:
+	.string "(He's too focused on his game to talk.)\p(It seems to be a Pokémon game, but it\nlooks like all the types have been\lswapped around.)$"
+
+kitfiskDoll_Text_0:
+	.string "It's a Kitfisk plush!$"

@@ -264,28 +264,24 @@ Route101_Movement_BirchApproachPlayer:
 	step_end
 
 Route101_Text_HelpMe:
-	.string "H-help me!$"
+	.string "H-HELP! SOMEONE!$"
 
 Route101_Text_PleaseHelp:
-	.string "Hello! You over there!\n"
-	.string "Please! Help!\p"
-	.string "In my BAG!\n"
-	.string "There's a POKé BALL!$"
+	.string "You!\n"
+	.string "In my bag!\l"
+	.string "There's a Pokéball!$"
 
 Route101_Text_DontLeaveMe:
 	.string "Wh-Where are you going?!\n"
 	.string "Don't leave me like this!$"
 
 Route101_Text_YouSavedMe:
-	.string "PROF. BIRCH: Whew…\p"
-	.string "I was in the tall grass studying wild\n"
-	.string "POKéMON when I was jumped.\p"
-	.string "You saved me.\n"
-	.string "Thanks a lot!\p"
-	.string "Oh?\p"
-	.string "Hi, you're {PLAYER}{KUN}!\p"
-	.string "This is not the place to chat, so come\n"
-	.string "by my POKéMON LAB later, okay?$"
+	.string "Ah… thank you.\p"
+	.string "I was… collecting samples, from wild\n"
+	.string "Pokémon, when one decided to attack\l"
+	.string "me!\p"
+	.string "This is… not the place for conversation,\nhowever.\p"
+	.string "Let's head back to my Lab.$"
 
 Route101_Text_TakeTiredPokemonToPokeCenter:
 	.string "If POKéMON get tired, take them to\n"
@@ -326,7 +322,7 @@ Route101_EventScript_dampSign::
 
 
 Route101_EventScript_signpost_Text_0:
-	.string "Route 1\n<- town / -> town$"
+	.string "Route 1\n{LEFT_ARROW} Frigidale\l{RIGHT_ARROW} Asterra$"
 
 Route101_EventScript_dampSign_Text_0:
 	.string "A slightly damp patch of grass.$"

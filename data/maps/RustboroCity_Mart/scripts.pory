@@ -148,22 +148,20 @@ script baloomGift_noText{
 
 //text for the hint toward what to do lol
 text amiiboMemory{
-"{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-           "You remember your mom saying to check\nthat everything is on your desk...{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
+"(You remember your mom saying to check\nthat everything is on your desk...)"
 }
 
 //if the amiibo flag IS set, start the gift event proper
 script baloomGift_amiiboFlagSet{
     msgbox("Welcome to the PokéMart, how c-")
     applymovement(5, exclamation)
-    msgbox("Oh! You really have one!")
+    msgbox("Wowie Zowie!\pYou have an Amiibo?!\pLucky for you, we have a special deal\ngoing on!\pJust let me scan it, aaaand...")
     //check if party's full, go to the appropriate script if it is
     getpartysize
     compare(VAR_RESULT, 6)
     goto_if_eq(baloomGift_partyFull)
 
     //if it isn't, gift the baloom
-    msgbox("D'you mind if I take your Amiibo for\na second?")
     applymovement(5, shuffle)
     msgbox(amiiboTransfer)
     msgbox("Theeere we go! And here you are!")
@@ -189,9 +187,8 @@ script baloomGift_partyFull{
 
 //text for handing over the amiibo
 text amiiboTransfer{
-    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "You hand the clerk your Amiibo.\p"
-    "He takes a scanner to the bottom of it.{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
+    "(You hand the clerk your Amiibo.)\p"
+    "(He takes a scanner to the bottom of\nit.)"
 }
 //amiibo grabbing movement
 movement shuffle{
@@ -201,22 +198,22 @@ movement shuffle{
 //gamer guy interaction
 script rustbotoMart_gamerGuy{
     lockall
+    goto_if_set(0x26A, gameText)
+    call_if_unset(0x26A, determineBaloomType)
     applymovement(4, exclamation)
     waitmovement(4)
     faceplayer
-    goto_if_set(0x26A, gameText)
-    call_if_unset(0x26A, determineBaloomType)
     msgbox("HEY! Go away!\pCan't you see I'm busy here!?")
     goto(gameText)
 }
 
 script gameText{
-    msgbox("{COLOR GREEN}{SHADOW LIGHT_GREEN}He seems to be busy playing a game.")
+    msgbox("(He seems to be busy playing a game.)")
     switch(var(VAR_UNUSED_0x404E)){
-        case(0): msgbox("Whoever that character is, it seems\ntheir rocket just crashed...{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}")
-        case(1): msgbox("Two characters are in a cave.\pThat rock doesn't look safe...{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}")
-        case(2): msgbox("Look at all those fruits!\pMust be a gardening game...{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}")
-        case(3): msgbox("Some kind of timed challenge is\ngoing on.\pBetter not interrupt...{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}")
+        case(0): msgbox("(Whoever that character is, it seems\ntheir rocket just crashed...)")
+        case(1): msgbox("(Two characters are in a cave.)\p(That rock doesn't look safe...)")
+        case(2): msgbox("(Look at all those fruits!)\p(Must be a gardening game...)")
+        case(3): msgbox("(Some kind of timed challenge is\ngoing on.)\p(Better not interrupt...)")
     }
     release
     releaseall

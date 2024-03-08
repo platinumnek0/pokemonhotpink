@@ -122,6 +122,26 @@ text bugf_gentleman_postbattle{
     "I've gotta admit, kid, you're\npretty humble!"
 }
 
+script bugForest_EventScript_bugCatcherBattle{
+    trainerbattle_single(TRAINER_DAVIS, bugf_catcher_intro, bugf_catcher_defeat, bugForest_eventSript_bugCatcherDisappear)
+    
+}
+text bugf_catcher_intro{
+    "TRAINER SPOTTED!\nBugs, ENGAGE!"
+}
+text bugf_catcher_defeat{
+    "MY BUGS!?!?!?"
+}
+script bugForest_eventSript_bugCatcherDisappear{
+    lockall
+    msgbox("You might have bested me this\ntime...\pBut soon... you'll see the TRUE POWER\nof my bugs...")
+    fadescreen(1)
+    setobjectxy(3, 65, 0)
+    setflag(FLAG_UNUSED_0x26B)
+    fadescreen(0)
+    releaseall
+}
+
 //mart event components
 
 //intro

@@ -159,10 +159,9 @@ baloomGift_amiiboFlagSet::
 	getpartysize
 	compare VAR_RESULT, 6
 	goto_if_eq baloomGift_partyFull
-	msgbox baloomGift_amiiboFlagSet_Text_2
 	applymovement 5, shuffle
 	msgbox amiiboTransfer
-	msgbox baloomGift_amiiboFlagSet_Text_3
+	msgbox baloomGift_amiiboFlagSet_Text_2
 	switch VAR_UNUSED_0x404E
 	case ( 0 ), baloomGift_amiiboFlagSet_3
 	case ( 1 ), baloomGift_amiiboFlagSet_4
@@ -170,9 +169,9 @@ baloomGift_amiiboFlagSet::
 	case ( 3 ), baloomGift_amiiboFlagSet_6
 baloomGift_amiiboFlagSet_1:
 	playfanfare MUS_OBTAIN_ITEM
-	msgbox baloomGift_amiiboFlagSet_Text_4
+	msgbox baloomGift_amiiboFlagSet_Text_3
 	waitfanfare
-	msgbox baloomGift_amiiboFlagSet_Text_5
+	msgbox baloomGift_amiiboFlagSet_Text_4
 	setflag 0x269
 	releaseall
 	return
@@ -207,11 +206,11 @@ shuffle:
 
 rustbotoMart_gamerGuy::
 	lockall
+	goto_if_set 0x26A, gameText
+	call_if_unset 0x26A, determineBaloomType
 	applymovement 4, exclamation
 	waitmovement 4
 	faceplayer
-	goto_if_set 0x26A, gameText
-	call_if_unset 0x26A, determineBaloomType
 	msgbox rustbotoMart_gamerGuy_Text_0
 	goto gameText
 	return
@@ -269,18 +268,15 @@ baloomGift_amiiboFlagSet_Text_0:
 	.string "Welcome to the PokéMart, how c-$"
 
 baloomGift_amiiboFlagSet_Text_1:
-	.string "Oh! You really have one!$"
+	.string "Wowie Zowie!\pYou have an Amiibo?!\pLucky for you, we have a special deal\ngoing on!\pJust let me scan it, aaaand...$"
 
 baloomGift_amiiboFlagSet_Text_2:
-	.string "D'you mind if I take your Amiibo for\na second?$"
-
-baloomGift_amiiboFlagSet_Text_3:
 	.string "Theeere we go! And here you are!$"
 
-baloomGift_amiiboFlagSet_Text_4:
+baloomGift_amiiboFlagSet_Text_3:
 	.string "You got a Baloom!$"
 
-baloomGift_amiiboFlagSet_Text_5:
+baloomGift_amiiboFlagSet_Text_4:
 	.string "Enjoy the gift!$"
 
 baloomGift_partyFull_Text_0:
@@ -290,25 +286,23 @@ rustbotoMart_gamerGuy_Text_0:
 	.string "HEY! Go away!\pCan't you see I'm busy here!?$"
 
 gameText_Text_0:
-	.string "{COLOR GREEN}{SHADOW LIGHT_GREEN}He seems to be busy playing a game.$"
+	.string "(He seems to be busy playing a game.)$"
 
 gameText_Text_1:
-	.string "Whoever that character is, it seems\ntheir rocket just crashed...{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}$"
+	.string "(Whoever that character is, it seems\ntheir rocket just crashed...)$"
 
 gameText_Text_2:
-	.string "Two characters are in a cave.\pThat rock doesn't look safe...{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}$"
+	.string "(Two characters are in a cave.)\p(That rock doesn't look safe...)$"
 
 gameText_Text_3:
-	.string "Look at all those fruits!\pMust be a gardening game...{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}$"
+	.string "(Look at all those fruits!)\p(Must be a gardening game...)$"
 
 gameText_Text_4:
-	.string "Some kind of timed challenge is\ngoing on.\pBetter not interrupt...{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}$"
+	.string "(Some kind of timed challenge is\ngoing on.)\p(Better not interrupt...)$"
 
 amiiboMemory::
-	.string "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-	.string "You remember your mom saying to check\nthat everything is on your desk...{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}$"
+	.string "(You remember your mom saying to check\nthat everything is on your desk...)$"
 
 amiiboTransfer::
-	.string "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-	.string "You hand the clerk your Amiibo.\p"
-	.string "He takes a scanner to the bottom of it.{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}$"
+	.string "(You hand the clerk your Amiibo.)\p"
+	.string "(He takes a scanner to the bottom of\nit.)$"

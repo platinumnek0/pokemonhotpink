@@ -299,7 +299,7 @@ Route103_EventScript_Isabelle::
 	end
 
 Route103_EventScript_BlockEntrance::
-	setobjectxyperm 21, 9, 32
+	setobjectxyperm 21, 9, 46
 	setobjectmovementtype 21, MOVEMENT_TYPE_FACE_RIGHT
 	return
 
@@ -365,8 +365,9 @@ Route103_Text_ShortcutToOldale:
 	.string "Fufufu, that's useful, isn't it?$"
 
 Route103_Text_RouteSign:
-	.string "ROUTE 103\n"
-	.string "{DOWN_ARROW} OLDALE TOWN$"
+	.string "Route 2\n"
+	.string "{DOWN_ARROW} Asterra\l"
+	.string "{LEFT_ARROW} Route 3$"
 
 `
 
@@ -420,15 +421,154 @@ script Route2_EventScript_lassBattle{
     releaseall
     end
 }
-
 text lassr2_intro{
 	"Hey! Stop walking and look at my\nPokémon!"
 }
-
 text lassr2_defeat{
 	"UGHHHH. Great."
 }
-
 text lassr2_postbattle{
 	"I don't understand how I could've\nlost... my Pokémon are so cute!"
+}
+
+//walk up and/or to the side
+script route2_walkUp_left{
+	lockall
+	applymovement(OBJ_EVENT_ID_PLAYER, route2_playerStepUp)
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	applymovement(OBJ_EVENT_ID_PLAYER, route2_playerStepRight)
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	goto(route2_EventScript_stellaIntro)
+}
+script route2_walkUp_right{
+	lockall
+	applymovement(OBJ_EVENT_ID_PLAYER, route2_playerStepUp)
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	applymovement(OBJ_EVENT_ID_PLAYER, route2_playerStepLeft)
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	goto(route2_EventScript_stellaIntro)
+}
+script route2_walkUp_rightMost{
+	lockall
+	applymovement(OBJ_EVENT_ID_PLAYER, route2_playerStepUp)
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	applymovement(OBJ_EVENT_ID_PLAYER, route2_playerStepLeft2)
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	goto(route2_EventScript_stellaIntro)
+}
+script route2_walkUp{
+	lockall
+	applymovement(OBJ_EVENT_ID_PLAYER, route2_playerStepUp)
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	goto(route2_EventScript_stellaIntro)
+}
+
+//stella introduction
+script route2_EventScript_stellaIntro{
+	applymovement(2, route2_stellaShuffle)
+	msgbox(route2_stellaIntroText)
+	waitmessage
+	msgbox("Let's see what else th-")
+	applymovement(2, lookDown)
+	waitmovement(2)
+	applymovement(2, exclamation)
+	waitmovement(2)
+	msgbox("{PLAYER}!!")
+	waitmessage
+	applymovement(2, route2_stellaRunDown)
+	waitmovement(2)
+	msgbox(route2_stella2)
+	waitmessage
+	applymovement(2, exclamation)
+	msgbox(route2_stellaPreBattle, MSGBOX_YESNO)
+	compare(VAR_RESULT, 0)
+	goto_if_eq(route2_EventScript_stellaBattleNo)
+	msgbox("Alright! Me 'n Sprinkles are giving\nit all we got!")
+	goto(route2_stellaRivalBattle)
+}
+//answering no
+script route2_EventScript_stellaBattleNo{
+	msgbox(route2_stellaBattleNo)
+	special(HealPlayerParty)
+	goto(route2_stellaRivalBattle)
+}
+//stella battle
+script route2_stellaRivalBattle{
+trainerbattle_no_intro(TRAINER_MAY_ROUTE_103_MUDKIP, route2_stellaDefeat)
+goto(route2_EventScript_stellaAfterBattle)
+}
+//after the battle
+script route2_EventScript_stellaAfterBattle{
+	setvar(VAR_OLDALE_RIVAL_STATE, 1)
+	msgbox(route2_stellaAfterBattle, MSGBOX_AUTOCLOSE)
+	waitmessage
+	applymovement(2, route2_stellaLeave)
+	waitmovement(2)
+	call(Route103_EventScript_RivalEnd)
+	releaseall
+}
+
+//player walks up
+movement route2_playerStepUp{
+	walk_up*3
+}
+//step left
+movement route2_playerStepLeft{
+	walk_left
+	face_up
+}
+movement route2_playerStepLeft2{
+	walk_left*2
+	face_up
+}
+//step right
+movement route2_playerStepRight{
+	walk_right
+	face_up
+}
+//move stella down
+movement route2_stellaWalkDown{
+	walk_down*2 
+}
+//walk in place
+movement route2_stellaShuffle{
+	walk_in_place_right*3
+}
+//run down
+movement route2_stellaRunDown{
+	walk_fast_down*2
+}
+//stella leaves
+movement route2_stellaLeave{
+	walk_right
+	walk_down*7
+}
+//look down
+movement route2_stellaLookDown{
+	face_down
+}
+
+//stella text
+text route2_stellaIntroText{
+	"Alright, uhhh…\p"
+	"Eggrole feathers, check…\nCaonine fur, check…\lSqweekling hair…"
+}
+text route2_stella2{
+	"I had no IDEA you would be here so\nSOON!!!\p"
+	"… … … … … …\n"
+	"…Uncle James needs me for something?\p"
+	"Alright, alright, I'll come with…"
+}
+text route2_stellaPreBattle{
+	"WOAH! He gave you A Pokémon!?\nNo WAY!\p"
+	"We GOTTA battle before we head back!"
+}
+text route2_stellaBattleNo{
+	"C'mooooon… you know you wanna!\nHere, I'll even heal your team! Just\lto be safe!"
+}
+text route2_stellaAfterBattle{
+	"…alright, maybe you're a little stronger\nthan I thought.\pLet's get going, if it's really THAT\nimportant."
+}
+text route2_stellaDefeat{
+	"WOW! Uh…"
 }

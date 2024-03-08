@@ -42,7 +42,7 @@
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
 
 #define FLAG_UNUSED_0x020    0x20 // hides quigley in his bedroom after you get your starter
-#define FLAG_UNUSED_0x021    0x21 // Unused Flag
+#define FLAG_UNUSED_0x021    0x21 // hides everyone on route 4 after the cutscene
 #define FLAG_UNUSED_0x022    0x22 // Unused Flag
 #define FLAG_UNUSED_0x023    0x23 // Unused Flag
 #define FLAG_UNUSED_0x024    0x24 // Unused Flag
@@ -253,7 +253,7 @@
 #define FLAG_RECEIVED_TM05                   0xE7
 #define FLAG_RECEIVED_TM19                   0xE8
 
-#define FLAG_UNUSED_0x0E9                    0xE9 // Unused Flag
+#define FLAG_DISABLE_RUNNING_AWAY            0xE9 //used to lock into wild battles
 
 #define FLAG_RECEIVED_TM44                   0xEA
 #define FLAG_RECEIVED_TM45                   0xEB
@@ -657,9 +657,9 @@
 #define FLAG_UNUSED_0x267  0x267 // used for the gift lucky egg in the forest
 #define FLAG_UNUSED_0x268  0x268 // used for the baloom amiibo
 #define FLAG_UNUSED_0x269  0x269 // used to lock you out of re-getting the baloom gift once you've got it already
-#define FLAG_UNUSED_0x26A  0x26A // Unused Flag
-#define FLAG_UNUSED_0x26B  0x26B // Unused Flag
-#define FLAG_UNUSED_0x26C  0x26C // Unused Flag
+#define FLAG_UNUSED_0x26A  0x26A // used to set the baloom form in stone 
+#define FLAG_UNUSED_0x26B  0x26B // hides bug catcher cole
+#define FLAG_UNUSED_0x26C  0x26C // shoe goodbye
 #define FLAG_UNUSED_0x26D  0x26D // Unused Flag
 #define FLAG_UNUSED_0x26E  0x26E // Unused Flag
 #define FLAG_UNUSED_0x26F  0x26F // Unused Flag
@@ -1045,7 +1045,7 @@
 #define FLAG_HIDE_RUSTBORO_CITY_POKEMON_SCHOOL_SCOTT                0x3E7
 
 // Item Ball Flags
-#define FLAG_ITEM_ROUTE_102_POTION                                  0x3E8
+#define FLAG_ITEM_ROUTE_102_POTION                                  0x3E8 //done
 #define FLAG_ITEM_ROUTE_116_X_SPECIAL                               0x3E9
 #define FLAG_ITEM_ROUTE_104_PP_UP                                   0x3EA
 #define FLAG_ITEM_ROUTE_105_IRON                                    0x3EB
@@ -1102,7 +1102,7 @@
 #define FLAG_ITEM_GRANITE_CAVE_B2F_RARE_CANDY                       0x41E
 #define FLAG_ITEM_PETALBURG_WOODS_X_ATTACK                          0x41F
 #define FLAG_ITEM_PETALBURG_WOODS_GREAT_BALL                        0x420
-#define FLAG_ITEM_ROUTE_104_POKE_BALL                               0x421
+#define FLAG_ITEM_ROUTE_104_POKE_BALL                               0x421 //done
 #define FLAG_ITEM_PETALBURG_WOODS_ETHER                             0x422
 #define FLAG_ITEM_MAGMA_HIDEOUT_3F_3R_ECAPE_ROPE                    0x423
 #define FLAG_ITEM_TRICK_HOUSE_PUZZLE_1_ORANGE_MAIL                  0x424
@@ -1180,7 +1180,7 @@
 #define FLAG_ITEM_AQUA_HIDEOUT_B1F_NUGGET                           0x46C
 #define FLAG_ITEM_MOSSDEEP_STEVENS_HOUSE_HM08                       0x46D // Unused Flag, leftover from R/S. HM08 is given to the player directly in Emerald
 #define FLAG_ITEM_ROUTE_119_NUGGET                                  0x46E
-#define FLAG_ITEM_ROUTE_104_POTION                                  0x46F
+#define FLAG_ITEM_ROUTE_104_POTION                                  0x46F //done
 #define FLAG_UNUSED_0x470                                           0x470 // Unused Flag
 #define FLAG_ITEM_ROUTE_103_PP_UP                                   0x471
 #define FLAG_UNUSED_0x472                                           0x472 // Unused Flag
@@ -1191,7 +1191,7 @@
 #define FLAG_ITEM_ROUTE_113_HYPER_POTION                            0x477
 #define FLAG_ITEM_ROUTE_115_HEAL_POWDER                             0x478
 #define FLAG_UNUSED_0x479                                           0x479 // Unused Flag
-#define FLAG_ITEM_ROUTE_116_POTION                                  0x47A
+#define FLAG_ITEM_ROUTE_116_POTION                                  0x47A //done
 #define FLAG_ITEM_ROUTE_119_ELIXIR_2                                0x47B
 #define FLAG_ITEM_ROUTE_120_REVIVE                                  0x47C
 #define FLAG_ITEM_ROUTE_121_REVIVE                                  0x47D
@@ -1217,7 +1217,7 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET                     0x491
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
-#define FLAG_UNUSED_0x493                                           0x493 // Unused Flag
+#define FLAG_UNUSED_0x493                                           0x493 // used to show and hide kanny
 #define FLAG_UNUSED_0x494                                           0x494 // Unused Flag
 #define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
 #define FLAG_UNUSED_0x496                                           0x496 // Unused Flag

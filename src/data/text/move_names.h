@@ -586,7 +586,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_MISTY_TERRAIN] = _("Misty Terrain"),
     [MOVE_ELECTRIFY] = _("Electrify"),
     [MOVE_PLAY_ROUGH] = _("Play Rough"),
-    [MOVE_FAIRY_WIND] = _("Fairy Wind"),
+    [MOVE_FAIRY_WIND] = _("Pixie Wind"),
     [MOVE_MOONBLAST] = _("Moonblast"),
     [MOVE_BOOMBURST] = _("Boomburst"),
     [MOVE_FAIRY_LOCK] = _("Fairy Lock"),
@@ -831,6 +831,10 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_MAGICAL_TORQUE] = _("Magical Torque"),
     [MOVE_PSYBLADE] = _("Psyblade"),
     [MOVE_HYDRO_STEAM] = _("Hydro Steam"),
+    [MOVE_BAND_SLAP] = _("Band Slap"),
+    [MOVE_BRACE] = _("Brace"),
+    [MOVE_GOO_TRAP] = _("Goo Trap")
+
 };
 #else
 // 12 letters
@@ -1665,6 +1669,9 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_MAGICAL_TORQUE] = _("MagiclTorque"),
     [MOVE_PSYBLADE] = _("Psyblade"),
     [MOVE_HYDRO_STEAM] = _("Hydro Steam"),
+    [MOVE_BAND_SLAP] = _("Band Slap"),
+    [MOVE_BRACE] = _("Brace"),
+    [MOVE_GOO_TRAP] = _("Goo Trap")
 };
 #endif
 

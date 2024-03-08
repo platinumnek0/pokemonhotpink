@@ -118,7 +118,7 @@ RivalsHouse_1F_EventScript_RivalMom::
 	lock
 	faceplayer
 	goto_if_set FLAG_DEFEATED_RIVAL_ROUTE103, RivalsHouse_1F_EventScript_GoHomeEverySoOften
-	goto_if_set FLAG_SYS_POKEMON_GET, RivalsHouse_1F_EventScript_RivalIsOnRoute103
+	goto_if_set FLAG_SYS_POKEMON_GET, RivalsHouse_1F_Text_TooBusyToNoticeVisit
 	goto_if_eq VAR_LITTLEROOT_RIVAL_STATE, 3, RivalsHouse_1F_EventScript_RivalTooBusy
 	special GetRivalSonDaughterString
 	msgbox RivalsHouse_1F_Text_LikeChildLikeFather, MSGBOX_DEFAULT
@@ -325,13 +325,13 @@ RivalsHouse_1F_Text_OhYoureTheNewNeighbor:
 	.string "Oh, hello. And you are?\p"
 	.string "… … … … … … … … …\n"
 	.string "… … … … … … … … …\p"
-	.string "Oh, you're {PLAYER}{KUN}, our new next-door\n"
-	.string "neighbor! Hi!\p"
-	.string "We have a {STR_VAR_1} about the same\n"
-	.string "age as you.\p"
-	.string "Our {STR_VAR_1} was excited about making\n"
-	.string "a new friend.\p"
-	.string "Our {STR_VAR_1} is upstairs, I think.$"
+	.string "Oh, you're {PLAYER}! You're Stella's\n"
+	.string "friend, aren't you?\p"
+	.string "She's not here, but I think our son would\n"
+	.string "be happy to meet you.\p"
+	.string "He's about your two's age. He's probably\n"
+	.string "up in his room...\l"
+	.string "Why don't you go say hi?$"
 
 RivalsHouse_1F_Text_LikeChildLikeFather:
 	.string "Like child, like father.\p"
@@ -341,10 +341,10 @@ RivalsHouse_1F_Text_LikeChildLikeFather:
 	.string "scrabbling about in grassy places.$"
 
 RivalsHouse_1F_Text_TooBusyToNoticeVisit:
-	.string "That {RIVAL}!\p"
-	.string "I guess our child is too busy with\n"
-	.string "POKéMON to notice that you came\l"
-	.string "to visit, {PLAYER}{KUN}.$"
+	.string "Oh, Quigley...\p"
+	.string "I have no clue what he must've been\n"
+	.string "up to, but it must've been engaging if\l"
+	.string "he didn't hear about the new neighbor.$"
 
 RivalsHouse_1F_Text_WentOutToRoute103:
 	.string "Oh, {RIVAL} went out to ROUTE 103\n"
@@ -362,27 +362,16 @@ RivalsHouse_1F_Text_ShouldGoHomeEverySoOften:
 
 RivalsHouse_1F_Text_MayWhoAreYou:
 	.string "Huh?\n"
-	.string "Who… Who are you?\p"
-	.string "… … … … … … … …\n"
+	.string "Who the hell are you!?\p"
 	.string "… … … … … … … …\p"
-	.string "Oh, you're {PLAYER}{KUN}.\n"
-	.string "So your move was today.\p"
-	.string "Um… I'm MAY.\n"
-	.string "Glad to meet you!\p"
-	.string "I…\n"
-	.string "I have this dream of becoming friends\l"
-	.string "with POKéMON all over the world.\p"
-	.string "I… I heard about you, {PLAYER}{KUN}, from\n"
-	.string "my dad, PROF. BIRCH.\p"
-	.string "I was hoping that you would be nice,\n"
-	.string "{PLAYER}{KUN}, and that we could be friends.\p"
-	.string "Oh, this is silly, isn't it?\n"
-	.string "I… I've just met you, {PLAYER}{KUN}.\p"
-	.string "Eheheh…\p"
-	.string "Oh, no! I forgot!\p"
-	.string "I was supposed to go help Dad catch\n"
-	.string "some wild POKéMON!\p"
-	.string "{PLAYER}{KUN}, I'll catch you later!$"
+	.string "Oh, you're {PLAYER}.\n"
+	.string "Stella's friend.\p"
+	.string "Mom said you'd be moving here, but…\n"
+	.string "didn't think that'd be so soon.\p"
+	.string "…who am I?\n"
+	.string "Um, helLO? Her cousin? Quigley?\l"
+	.string "Wow, you dont even know your best\lfriend's family...\lyou really are dense, huh?\p"
+	.string "Now screw off, Dad wants me to help with\nresearch and I gotta prepare.$"
 
 RivalsHouse_1F_Text_BrendanWhoAreYou:
 	.string "Hey!\n"

@@ -17,6 +17,11 @@
       "map": "MAP_ROUTE101",
       "offset": -8,
       "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE4",
+      "offset": 2,
+      "direction": "up"
     }
   ],
   "object_events": [
@@ -136,6 +141,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "LittlerootTown_EventScript_roadblockGuy",
       "flag": "0x266"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HIKER",
+      "x": 24,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -182,21 +200,30 @@
     },
     {
       "type": "trigger",
-      "x": 29,
-      "y": 1,
-      "elevation": 3,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
-      "var_value": "1",
-      "script": "LittlerootTown_EventScript_GoSaveBirchTrigger"
-    },
-    {
-      "type": "trigger",
       "x": 36,
       "y": 11,
       "elevation": 0,
       "var": "VAR_LITTLEROOT_TOWN_STATE",
       "var_value": "0",
       "script": "LittlerootTown_EventScript_NeedPokemon"
+    },
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "NULL"
+    },
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "NULL"
     }
   ],
   "bg_events": [

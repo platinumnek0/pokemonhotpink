@@ -4126,12 +4126,12 @@ static void PrintMonInfo(u32 num, u32 value, u32 owned, u32 newEntry)
         category = gText_5MarksPokemon;
     }
     PrintInfoScreenText(category, 0x64, 0x29);
-    PrintInfoScreenText(gText_HTHeight, 0x60, 0x39);
-    PrintInfoScreenText(gText_WTWeight, 0x60, 0x49);
+    PrintInfoScreenText(gText_HTHeight, 0x5C, 0x39);
+    PrintInfoScreenText(gText_WTWeight, 0x5C, 0x49);
     if (owned)
     {
-        PrintMonHeight(gPokedexEntries[num].height, 0x81, 0x39);
-        PrintMonWeight(gPokedexEntries[num].weight, 0x81, 0x49);
+        PrintMonHeight(gPokedexEntries[num].height, 0x66, 0x39);
+        PrintMonWeight(gPokedexEntries[num].weight, 0x66, 0x49);
     }
     else
     {
@@ -4231,7 +4231,6 @@ static void PrintMonWeight(u16 weight, u8 left, u8 top)
     buffer[i++] = CHAR_l;
     buffer[i++] = CHAR_b;
     buffer[i++] = CHAR_s;
-    buffer[i++] = CHAR_PERIOD;
     buffer[i++] = EOS;
     PrintInfoScreenText(buffer, left, top);
 }
@@ -4610,7 +4609,7 @@ static u32 GetPokedexMonPersonality(u16 species)
 u16 CreateMonSpriteFromNationalDexNumber(u16 nationalNum, s16 x, s16 y, u16 paletteSlot)
 {
     nationalNum = NationalPokedexNumToSpecies(nationalNum);
-    return CreateMonPicSprite(nationalNum, SHINY_ODDS, GetPokedexMonPersonality(nationalNum), TRUE, x, y, paletteSlot, TAG_NONE);
+    return CreateMonPicSprite(nationalNum, SHINY_ODDS + 100000000, GetPokedexMonPersonality(nationalNum), TRUE, x, y, paletteSlot, TAG_NONE);
 }
 
 static u16 CreateSizeScreenTrainerPic(u16 species, s16 x, s16 y, s8 paletteSlot)

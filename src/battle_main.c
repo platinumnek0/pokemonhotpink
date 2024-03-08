@@ -327,8 +327,8 @@ const u8 gTypeNames[NUMBER_OF_MON_TYPES][TYPE_NAME_LENGTH + 1] =
     [TYPE_FIRE] = _("Fire"),
     [TYPE_WATER] = _("Water"),
     [TYPE_GRASS] = _("Grass"),
-    [TYPE_ELECTRIC] = _("Electr"),
-    [TYPE_PSYCHIC] = _("Psychc"),
+    [TYPE_ELECTRIC] = _("Elec"),
+    [TYPE_PSYCHIC] = _("Psych"),
     [TYPE_ICE] = _("Ice"),
     [TYPE_DRAGON] = _("Dragon"),
     [TYPE_DARK] = _("Dark"),
@@ -394,6 +394,7 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_HIKER, 10},
     {TRAINER_CLASS_YOUNG_COUPLE, 8},
     {TRAINER_CLASS_WINSTRATE, 10},
+    {TRAINER_CLASS_SALESMAN, 5},
     {0xFF, 5}, // Any trainer class not listed above uses this
 };
 
@@ -4022,6 +4023,11 @@ u8 IsRunningFromBattleImpossible(void)
     if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE) // Cannot ever run from saving Birch's battle.
     {
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DONT_LEAVE_BIRCH;
+        return BATTLE_RUN_FORBIDDEN;
+    }
+    if (FlagGet(FLAG_DISABLE_RUNNING_AWAY))
+    {
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CANT_ESCAPE;
         return BATTLE_RUN_FORBIDDEN;
     }
     if (GetBattlerPosition(gActiveBattler) == B_POSITION_PLAYER_RIGHT && WILD_DOUBLE_BATTLE

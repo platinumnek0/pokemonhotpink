@@ -124,8 +124,10 @@ static void InitSelectedTMSpriteData(u8 a0, u16 itemId);
 static void SpriteCB_MoveTMSpriteInCase(struct Sprite * sprite);
 static void LoadTMTypePalettes(void);
 static void DrawPartyMonIcons(void);
-static void TintPartyMonIcons(u8 tm);
+static void TintPartyMonIcons(u16 tm);
 static void DestroyPartyMonIcons(void);
+
+extern const struct SpritePalette gMonIconPaletteTable[6];
 
 static const struct BgTemplate sBGTemplates[] = {
     {
@@ -588,7 +590,7 @@ static void TMCase_MoveCursor_UpdatePrintedDescription(s32 itemIndex)
     AddTextPrinterParameterized_ColorByIndex(1, 2, str, 2, 3, 1, 0, 0, 0);
 
     // update icons
-    TintPartyMonIcons(itemId - ITEM_TM01);
+    TintPartyMonIcons(itemId);
 }
 
 static void FillBG2RowWithPalette_2timesNplus1(s32 a0)
@@ -1001,10 +1003,10 @@ static void DrawMoveInfoUIMarkers(void)
         BlitMenuInfoIcon(4, 21, 0, 24); // "Accuracy" sprite
         BlitMenuInfoIcon(4, 22, 0, 36); // "PP" sprite
     #else
-        BlitMenuInfoIcon(4, 20, 0, 0); // "Type" sprite
-        BlitMenuInfoIcon(4, 21, 0, 12); // "Power" sprite
-        BlitMenuInfoIcon(4, 22, 0, 24); // "Accuracy" sprite
-        BlitMenuInfoIcon(4, 23, 0, 36); // "PP" sprite
+        BlitMenuInfoIcon(4, 21, 0, 0); // "Type" sprite
+        BlitMenuInfoIcon(4, 22, 0, 12); // "Power" sprite
+        BlitMenuInfoIcon(4, 23, 0, 24); // "Accuracy" sprite
+        BlitMenuInfoIcon(4, 24, 0, 36); // "PP" sprite
     #endif
     CopyWindowToVram(4, 2);
 }
@@ -1146,7 +1148,7 @@ static void DrawPartyMonIcons(void)
             icon_y = i < 3 ? MON_ICON_START_Y : MON_ICON_START_Y + MON_ICON_PADDING;
         }
         //get species
-        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG);
 
         //create icon sprite
         #ifndef POKEMON_EXPANSION
@@ -1162,21 +1164,23 @@ static void DrawPartyMonIcons(void)
     }
 }
 
-static void TintPartyMonIcons(u8 tm)
+static void TintPartyMonIcons(u16 tm)
 {
     u8 i;
     u16 species;
 
     for (i = 0; i < gPlayerPartyCount; i++)
     {
-        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
-        if (!CanSpeciesLearnTMHM(species, tm))
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG);
+        SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_ALL);
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(7, 11));
+        if (!CanLearnTeachableMove(species, ItemIdToBattleMoveId(tm))) 
         {
-            gSprites[spriteIdData[i]].oam.paletteNum = 7 + spriteIdPalette[i];
+            gSprites[spriteIdData[i]].oam.objMode = ST_OAM_OBJ_BLEND;
         }
         else
         {
-            gSprites[spriteIdData[i]].oam.paletteNum = spriteIdPalette[i];//gMonIconPaletteIndices[species];
+            gSprites[spriteIdData[i]].oam.objMode = ST_OAM_OBJ_NORMAL;//gMonIconPaletteIndices[species];
         }
     }
     

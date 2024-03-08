@@ -35,3 +35,18 @@ RustboroCity_Flat2_2F_Text_GoingToWorkAtDevonToo:
 	.string "When I grow up, I'm going to work for\n"
 	.string "DEVON, too.$"
 
+rustboro_flat2_2f_oldMan::
+	msgbox rurstboro_flat2_oldMan, MSGBOX_NPC
+	return
+
+
+rustboro_flat2_2f_boy::
+	msgbox rustboro_flat2_boy, MSGBOX_NPC
+	return
+
+
+rurstboro_flat2_oldMan::
+	.string "Used'ta work fer Evo Co. back in my\nyouth.\pHelped in developin' artificial\nintelligence.\pBut the boss kept akin' fer more and\nmore, so I quit!$"
+
+rustboro_flat2_boy::
+	.string "You ever wonder what a Bowlder smells\nlike?$"

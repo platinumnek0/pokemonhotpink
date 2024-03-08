@@ -15,8 +15,8 @@ const struct PokedexEntry gPokedexEntries[] =
     [NATIONAL_DEX_BULBASAUR] =
     {
         .categoryName = _("Nut Croc"),
-        .height = 7,
-        .weight = 69,
+        .height = 999,
+        .weight = 999,
         .description = gBulbasaurPokedexText,
         .pokemonScale = 356,
         .pokemonOffset = 17,
@@ -26,7 +26,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_IVYSAUR] =
     {
-        .categoryName = _("Palm"),
+        .categoryName = _("Palm Croc"),
         .height = 10,
         .weight = 130,
         .description = gIvysaurPokedexText,
@@ -38,7 +38,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_VENUSAUR] =
     {
-        .categoryName = _("Palm"),
+        .categoryName = _("Palm Croc"),
         .height = 20,
         .weight = 1000,
         .description = gVenusaurPokedexText,

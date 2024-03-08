@@ -50,3 +50,49 @@ RustboroCity_CuttersHouse_Text_DadHelpedClearLandOfTrees:
 	.string "He made his POKéMON use CUT to clear\n"
 	.string "the land of trees.$"
 
+porkbelly_cutter::
+	lockall
+	faceplayer
+	goto_if_set FLAG_RECEIVED_HM01, porkbelly_cutter_hasCut
+	applymovement 1, exclamation
+	msgbox porkbelly_cutter_Text_0
+	waitmessage
+	giveitem ITEM_HM01
+	setflag FLAG_RECEIVED_HM01
+	msgbox porkbelly_cutter_Text_1
+	msgbox porkbelly_cutter_Text_2
+	release
+	releaseall
+	return
+
+
+porkbelly_cutter_hasCut::
+	msgbox porkbelly_cutter_hasCut_Text_0
+	release
+	releaseall
+	return
+
+
+porkbelly_cutterHouse_caution::
+	lockall
+	faceplayer
+	msgbox porkbelly_cutterHouse_caution_Text_0
+	release
+	releaseall
+	return
+
+
+porkbelly_cutter_Text_0:
+	.string "You!\pTake this!$"
+
+porkbelly_cutter_Text_1:
+	.string "Ya see those thin scraggly trees\naround?\pUse this to cut 'em down.\pThey grow back quick, though- they won't\nstay down forever.$"
+
+porkbelly_cutter_Text_2:
+	.string "Oh!\pAlso, if ya don't got it already, you'll\nneed the Test Badge from the gym here\lin Porkbelly to use it.$"
+
+porkbelly_cutter_hasCut_Text_0:
+	.string "To use Cut outside battle, you need the\nTest Badge from the gym here.$"
+
+porkbelly_cutterHouse_caution_Text_0:
+	.string "Be careful using Cut.\pSometimes, Pokémon disguise themselves\nas trees.$"
